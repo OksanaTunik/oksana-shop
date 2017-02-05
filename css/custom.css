@@ -1,0 +1,359 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css?family=Delius');
+/*@import url('https://fonts.googleapis.com/css?family=Pacifico');*/
+@import url('https://fonts.googleapis.com/css?family=Crafty+Girls');
+
+.h1, .h2, hr {
+  font-family: 'Crafty Girls', cursive;
+}
+
+hr {
+  font-size: 28px;
+}
+
+/* GRID */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* CUSTOM */
+body {
+  font-family: 'Delius', cursive;
+  background-image: url('/img/crossword.png');
+  /*background-image: url('/img/greyzz.png');*/
+}
+
+.header {
+  background-image: url('/img/header.png');
+  justify-content: space-around;
+  margin: 2em 0;
+}
+
+.footer {
+  min-height: 3em;
+}
+
+.header .col {
+  flex-grow: 1;
+}
+
+.header .text-container {
+  flex-grow: 2;
+}
+
+.header .avatar-container {
+  text-align: center;
+}
+
+.avatar {
+  max-width: 80px;
+  max-height: 80px;
+  width: 80px;
+  height: 80px;
+}
+
+.img-circle {
+  border-radius: 50%;
+}
+
+section:not(#products) {
+  background: white;
+  padding: 1em;
+  border-radius: 6px;
+}
+
+#products {
+  flex-direction: column;
+}
+
+#products .product-row {
+  justify-content: center;
+  margin-bottom: 2em;
+}
+
+.product {
+  min-width: 300px;
+  max-width: 500px;
+  /*width: 300px;*/
+  margin: 10px;
+  background: white;
+  padding: 1.25em;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+}
+
+.product .image-primary {
+  align-self: center;
+  flex-grow: 1;
+}
+
+.add-to-cart .btn-group {
+  display: flex;
+  align-items: center;
+}
+
+.add-to-cart .spacer {
+  width: 1em;
+  display: inline-block;
+}
+
+.add-to-cart .price {
+  /*margin-left: 1em;*/
+  font-size: 2em;
+}
+
+.btn {
+  border-radius: 6px;
+  padding: 1em;
+  border: 1px solid #bbb;
+  font-size: 16px;
+}
+
+.btn.btn-primary[disabled] {
+  border: 1px solid #bbb;
+  background-color: #bbb;
+}
+
+.btn.btn-primary {
+  background-color: rgb(39, 140, 226);
+  border: 1px solid rgb(39, 140, 226);
+  color: white;
+}
+
+.img-rounded {
+  border-radius: 2%;
+}
+
+@media screen and (max-width: 768px) {
+  section#products {
+    /*text-align: center;*/
+    flex-direction: column;
+  }
+
+  .product {
+    width: auto;
+    max-width: none;
+  }
+}
+
+/* HR WITH ORNAMENT IN THE MIDDLE */
+/*hr:after {
+  background: url('/.png') no-repeat top center;
+  content: "";
+  display: block;
+  height: 30px;
+  position: relative;
+  top: -15px;
+}
+*/
+
+hr {
+  line-height: 1em;
+  position: relative;
+  outline: 0;
+  border: 0;
+  color: black;
+  text-align: center;
+  height: 1.5em;
+  /*opacity: 0.5;*/
+}
+
+hr:before {
+  content: '';
+  background: -webkit-linear-gradient(left, transparent, #818078, transparent);
+  background: linear-gradient(to right, transparent, #818078, transparent);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+}
+
+hr:after {
+  content: attr(data-content);
+  position: relative;
+  display: inline-block;
+  color: black;
+  padding: 0 0.5em;
+  line-height: 1.5em;
+  /*color: #818078;*/
+  color: black;
+  /*background-color: #fcfcfa;*/
+  background-color: #fcfcfc;
+}
+
+/* SPINNER */
+.cssload-loader {
+  height: 39px;
+  width: 40px;
+  position: absolute;
+  left:calc(50% - 19px);
+  animation: cssload-loader 5.75s cubic-bezier(.8,0,.2,1) infinite;
+    -o-animation: cssload-loader 5.75s cubic-bezier(.8,0,.2,1) infinite;
+    -ms-animation: cssload-loader 5.75s cubic-bezier(.8,0,.2,1) infinite;
+    -webkit-animation: cssload-loader 5.75s cubic-bezier(.8,0,.2,1) infinite;
+    -moz-animation: cssload-loader 5.75s cubic-bezier(.8,0,.2,1) infinite;
+}
+
+.cssload-top {
+  animation: cssload-top 5.75s linear infinite;
+    -o-animation: cssload-top 5.75s linear infinite;
+    -ms-animation: cssload-top 5.75s linear infinite;
+    -webkit-animation: cssload-top 5.75s linear infinite;
+    -moz-animation: cssload-top 5.75s linear infinite;
+  border-top: 19px solid rgb(245,197,52);
+  border-right: 19px solid transparent;
+  border-left: 19px solid transparent;
+  height: 0px;
+  width: 1px;
+  transform-origin: 50% 100%;
+    -o-transform-origin: 50% 100%;
+    -ms-transform-origin: 50% 100%;
+    -webkit-transform-origin: 50% 100%;
+    -moz-transform-origin: 50% 100%;
+}
+
+.cssload-bottom {
+  animation: cssload-bottom 5.75s linear infinite;
+    -o-animation: cssload-bottom 5.75s linear infinite;
+    -ms-animation: cssload-bottom 5.75s linear infinite;
+    -webkit-animation: cssload-bottom 5.75s linear infinite;
+    -moz-animation: cssload-bottom 5.75s linear infinite;
+  border-right: 19px solid transparent;
+  border-bottom: 19px solid rgb(245,197,52);
+  border-left: 19px solid transparent;
+  height: 0px;
+  width: 1px;
+  transform: scale(0);
+    -o-transform: scale(0);
+    -ms-transform: scale(0);
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+  transform-origin: 50% 100%;
+    -o-transform-origin: 50% 100%;
+    -ms-transform-origin: 50% 100%;
+    -webkit-transform-origin: 50% 100%;
+    -moz-transform-origin: 50% 100%;
+}
+
+.cssload-line {
+  animation: cssload-line 5.75s linear infinite;
+    -o-animation: cssload-line 5.75s linear infinite;
+    -ms-animation: cssload-line 5.75s linear infinite;
+    -webkit-animation: cssload-line 5.75s linear infinite;
+    -moz-animation: cssload-line 5.75s linear infinite;
+  border-left: 1px dotted rgb(245,197,52);
+  height: 0px;
+  width: 0px;
+  position: absolute;
+  top: 19px;
+  left: 19px;
+}
+
+
+@keyframes cssload-loader {
+  90% { transform: rotate(0deg); }
+  100% { transform: rotate(180deg); }
+}
+
+@-o-keyframes cssload-loader {
+  90% { -o-transform: rotate(0deg); }
+  100% { -o-transform: rotate(180deg); }
+}
+
+@-ms-keyframes cssload-loader {
+  90% { -ms-transform: rotate(0deg); }
+  100% { -ms-transform: rotate(180deg); }
+}
+
+@-webkit-keyframes cssload-loader {
+  90% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(180deg); }
+}
+
+@-moz-keyframes cssload-loader {
+  90% { -moz-transform: rotate(0deg); }
+  100% { -moz-transform: rotate(180deg); }
+}
+
+@keyframes cssload-top {
+  90% { transform: scale(0); }
+  100% { transform: scale(0);}
+}
+
+@-o-keyframes cssload-top {
+  90% { -o-transform: scale(0); }
+  100% { -o-transform: scale(0);}
+}
+
+@-ms-keyframes cssload-top {
+  90% { -ms-transform: scale(0); }
+  100% { -ms-transform: scale(0);}
+}
+
+@-webkit-keyframes cssload-top {
+  90% { -webkit-transform: scale(0); }
+  100% { -webkit-transform: scale(0);}
+}
+
+@-moz-keyframes cssload-top {
+  90% { -moz-transform: scale(0); }
+  100% { -moz-transform: scale(0);}
+}
+
+@keyframes cssload-bottom {
+  10% { transform: scale(0); }
+  90% { transform: scale(1); }
+  100% { transform: scale(1); }
+}
+
+@-o-keyframes cssload-bottom {
+  10% { -o-transform: scale(0); }
+  90% { -o-transform: scale(1); }
+  100% { -o-transform: scale(1); }
+}
+
+@-ms-keyframes cssload-bottom {
+  10% { -ms-transform: scale(0); }
+  90% { -ms-transform: scale(1); }
+  100% { -ms-transform: scale(1); }
+}
+
+@-webkit-keyframes cssload-bottom {
+  10% { -webkit-transform: scale(0); }
+  90% { -webkit-transform: scale(1); }
+  100% { -webkit-transform: scale(1); }
+}
+
+@-moz-keyframes cssload-bottom {
+  10% { -moz-transform: scale(0); }
+  90% { -moz-transform: scale(1); }
+  100% { -moz-transform: scale(1); }
+}
+
+@keyframes cssload-line {
+  10% { height: 19px; }
+  100% { height: 19px; }
+}
+
+@-o-keyframes cssload-line {
+  10% { height: 19px; }
+  100% { height: 19px; }
+}
+
+@-ms-keyframes cssload-line {
+  10% { height: 19px; }
+  100% { height: 19px; }
+}
+
+@-webkit-keyframes cssload-line {
+  10% { height: 19px; }
+  100% { height: 19px; }
+}
+
+@-moz-keyframes cssload-line {
+  10% { height: 19px; }
+  100% { height: 19px; }
+}
