@@ -1,12 +1,12 @@
 var gulp = require('gulp');
 var babel = require('gulp-babel');
-var browserify = require('gulp-browserify');
+var rollup = require('gulp-rollup');
 var rename = require('gulp-rename');
 var minify = require('gulp-minify');
 
 gulp.task('bundle_js', function () {
-  return gulp.src(['js/index.js'])
-    .pipe(browserify({ insertGlobals : true }))
+  return gulp.src(['js/**/*.js'])
+    .pipe(rollup({ entry: 'js/index.js' }))
     .pipe(rename('bundle.js'))
     .pipe(gulp.dest('build'));
 });

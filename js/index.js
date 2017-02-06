@@ -1,2 +1,2 @@
-require('./controllers/index_ctrl');
-require('./directives/trust');
+import './controllers/index_ctrl';
+import './directives/trust';

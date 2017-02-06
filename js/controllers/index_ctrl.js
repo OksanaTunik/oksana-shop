@@ -1,6 +1,6 @@
-require('../utilities/array');
+import '../utilities/array';
 
-let app = require('../app');
+import app from '../app';
 
 app.controller('IndexCtrl', ['$scope', $scope => {
   let products = [
