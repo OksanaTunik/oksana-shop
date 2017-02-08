@@ -1,3 +1,13 @@
-import app from '../app';
+(function () {
+  'use strict';
 
-app.filter('trust', ['$sce', $sce => { return htmlCode => $sce.trustAsHtml(htmlCode) }]);
+  angular
+    .module('ShoppingCartApp')
+    .filter('trust', TrustFilter);
+
+  TrustFilter.$inject = ['$sce'];
+
+  function TrustFilter($sce) {
+    return htmlCode => $sce.trustAsHtml(htmlCode);
+  }
+})();

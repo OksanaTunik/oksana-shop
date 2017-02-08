@@ -1,3 +1,1 @@
-let app = angular.module('ShoppingCart', []);
-
-export default app;
+angular.module('ShoppingCartApp', []);

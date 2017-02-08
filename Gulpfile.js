@@ -1,27 +1,28 @@
 var gulp = require('gulp');
 var babel = require('gulp-babel');
-var rollup = require('gulp-rollup');
-var rename = require('gulp-rename');
-var minify = require('gulp-minify');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
+var cleanCss = require('gulp-clean-css');
+var pump = require('pump');
 
 gulp.task('bundle_js', function () {
-  return gulp.src(['js/**/*.js'])
-    .pipe(rollup({ entry: 'js/index.js' }))
-    .pipe(rename('bundle.js'))
-    .pipe(gulp.dest('build'));
+  pump([
+    gulp.src(['js/**/*.js']),
+    concat('bundle.js'),
+    babel({ presets: ['es2015'] }),
+    //uglify(),
+    gulp.dest('build')
+  ]);
 });
 
-gulp.task('es6_to_es5', ['bundle_js'], function () {
-  return gulp.src(['build/bundle.js'])
-    .pipe(babel({ presets: ['es2015'] }))
-    .pipe(gulp.dest('build'));
+gulp.task('bundle_css', function () {
+  pump([
+    gulp.src(['css/**/*.css']),
+    concat('bundle.css'),
+    cleanCss(),
+    gulp.dest('build')
+  ]);
 });
 
-gulp.task('minify_js', ['es6_to_es5'], function () {
-  return gulp.src('build/bundle.js')
-    .pipe(minify({}))
-    .pipe(gulp.dest('build'));
-});
-
-gulp.task('default', ['minify_js'], function () {
+gulp.task('default', ['bundle_js', 'bundle_css'], function () {
 });

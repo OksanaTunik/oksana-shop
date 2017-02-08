@@ -5,13 +5,13 @@
   <title>Shopping Cart</title>
 
   <!-- <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css"> -->
-  <link rel="stylesheet" href="/css/custom.css">
+  <link rel="stylesheet" href="/build/bundle.css">
 
   <script src="/bower_components/angular/angular.min.js"></script>
 
-  <script src="/build/bundle-min.js"></script>
+  <script src="/build/bundle.js"></script>
 </head>
-<body ng-app="ShoppingCart">
+<body ng-app="ShoppingCartApp">
 
 <div class="header row">
   <div class="col avatar-container">
@@ -39,7 +39,7 @@
   <div class="col-md-3"><a href="#contact"></a></div>
 </div>
 
-<div class="container-fluid" ng-controller="IndexCtrl">
+<div class="container-fluid" ng-controller="IndexCtrl as index">
   <hr data-content="About">
 
   <section id="about" class="row">
@@ -50,15 +50,15 @@
 
   <section id="products" class="row">
     <div class="row" style="min-height: 3em;">
-      <div class="cssload-loader" ng-show="!productRows.length">
+      <div class="cssload-loader" ng-show="!index.products.length">
         <div class="cssload-top"></div>
         <div class="cssload-bottom"></div>
         <div class="cssload-line"></div>
       </div>
     </div>
 
-    <div class="product-row row" ng-repeat="products in productRows">
-      <div class="product" ng-repeat="product in products">
+    <div class="row">
+      <div class="product" ng-repeat="product in index.products">
         <div class="images">
           <img ng-class="{'image-primary': $first}" class="image-primary" alt="Image" ng-src="{{image}}" ng-repeat="image in product.images">
         </div>
@@ -71,7 +71,7 @@
           <div class="btn-group">
             <div ng-if="product.amount > 0">
               <input type="number" min-value="1" value="1">
-              <button class="btn btn-lg btn-primary" ng-click="addToCart(product)">Add to cart</button>
+              <button class="btn btn-lg btn-primary" ng-click="index.addToCart(product)">Add to cart</button>
               <div class="spacer"></div>
             </div>
             <div class="price">{{ product.price | currency }}</div>
@@ -90,10 +90,10 @@
     <p><em>Contact information</em></p>
   </section>
 
-  <hr data-content="&#x2740; &#x2741; &#x2748; Your cart &#x2748; &#x2766; &#x2767;" ng-show="cart.items.length > 0">
+  <hr data-content="&#x2740; &#x2741; &#x2748; Your cart &#x2748; &#x2766; &#x2767;" ng-show="index.cart.items.length > 0">
 
-  <section id="cart" class="row" ng-show="cart.items.length">
-    <div class="row" ng-repeat="cartItem in cart.items">
+  <section id="cart" class="row" ng-show="index.cart.items.length">
+    <div class="row" ng-repeat="cartItem in index.cart.items">
       <div class="col-md-3 col-xs-12">
         <img ng-src="{{cartItem.image}}" alt="Image" class="img-rounded">
       </div>
@@ -118,7 +118,7 @@
         <hr>
       </div>
       <div class="col-xs-3">
-        <div class="h2 total">{{ getTotal() | currency }}</div>
+        <div class="h2 total">{{ index.getTotal() | currency }}</div>
       </div>
     </div>
   </section>
