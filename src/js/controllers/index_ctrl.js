@@ -54,6 +54,20 @@
           description: 'Super koc dziecięcy w stylistyce poduchi-chmurki Super koc dziecięcy w sty<br>listyce poduchi-chmurkiSuper koc dziecięcy w stylistyce poduchi-chmurkiSuper koc dziecięcy w stylistyce poduchi-chmurkiSuper koc dziecięcy w stylistyce poduchi-chmurki',
           images: [''],
           amount: 1
+        },
+        {
+          title: 'Poducha #5',
+          price: 9.99,
+          description: 'Super poducha okrągła dziecięca',
+          images: [''],
+          amount: 5
+        },
+        {
+          title: 'Poducha #4',
+          price: 9.99,
+          description: 'Super poducha okrągła dziecięca',
+          images: [''],
+          amount: 5
         }
       ];
     }

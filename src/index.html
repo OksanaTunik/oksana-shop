@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shopping Cart</title>
+
+  <link rel="stylesheet" href="/bundle.css">
+
+  <script src="/bower_components/angular/angular.min.js"></script>
+</head>
+<body ng-app="ShoppingCartApp">
+  <div class="header row">
+    <div class="col avatar-container">
+      <img src="/img/photo.jpg" alt="Photo" class="img-circle avatar">
+    </div>
+
+    <div class="col text-container">
+      <div class="row">
+        <div class="h2">Title</div>
+      </div>
+
+      <div class="row">
+        <em>One-line description</em>
+      </div>
+    </div>
+
+    <div class="col cart-container">
+     <a href="#cart" ng-show="cart.items.length > 0"><i class="glyphicon glyphicon-shopping-cart"></i></a>
+    </div>
+  </div>
+
+  <div class="row navigation">
+    <div class="col-md-3"><a href="#about"></a></div>
+    <div class="col-md-3"><a href="#products"></a></div>
+    <div class="col-md-3"><a href="#contact"></a></div>
+  </div>
+
+  <div class="container-fluid" ng-controller="IndexCtrl as index">
+    <hr data-content="About">
+
+    <section id="about" class="row">
+      <p><em>7 to 8 sentences, describing the whole idea and the workflow</em></p>
+    </section>
+
+    <hr data-content="Products">
+
+    <section id="products" class="row">
+      <div class="row loader-container">
+        <div class="cssload-loader" ng-show="!index.products.length">
+          <div class="cssload-top"></div>
+          <div class="cssload-bottom"></div>
+          <div class="cssload-line"></div>
+        </div>
+      </div>
+
+      <div class="row product-row">
+        <img class="product" alt="Image" ng-repeat="product in index.products" ng-src="{{product.images[0]}}">
+
+        <!--<div class="description" ng-bind-html="product.description | trust"></div>
+
+        <div class="add-to-cart">
+          <div class="btn-group">
+            <div ng-if="product.amount > 0">
+              <input type="number" min-value="1" value="1">
+              <button class="btn btn-lg btn-primary" ng-click="index.addToCart(product)">Add to cart</button>
+              <div class="spacer"></div>
+            </div>
+            <div class="price">{{ product.price | currency }}</div>
+          </div>
+
+          <div class="small" ng-if="product.amount > 0">{{product.amount}} <ng-pluralize count="product.amount" when="{'1': 'item', 'other': 'items'}"></ng-pluralize> available</div>
+          <div class="small text-danger" ng-if="product.amount <= 0">This product is currently inavailable</div>
+        </div>-->
+      </div>
+    </section>
+
+    <hr data-content="Contact">
+
+    <section id="contact" class="row">
+      <p><em>Contact information</em></p>
+    </section>
+
+    <hr data-content="&#x2740; &#x2741; &#x2748; Your cart &#x2748; &#x2766; &#x2767;" ng-show="index.cart.items.length > 0">
+
+    <section id="cart" class="row" ng-show="index.cart.items.length">
+      <div class="row" ng-repeat="cartItem in index.cart.items">
+        <div class="col-md-3 col-xs-12">
+          <img ng-src="{{cartItem.image}}" alt="Image" class="img-rounded">
+        </div>
+
+        <div class="col-md-9 col-xs-12">
+          <div class="row">
+            <div class="col-xs-12 title">{{cartItem.title}}</div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 price">
+              <div class="product-price">{{cartItem.price | currency}}</div>
+              <div class="amount">{{cartItem.amount}}</div>
+              <div class="subtotal">{{(cartItem.price * cartItem.amount) | currency}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-9">
+          <hr>
+        </div>
+        <div class="col-xs-3">
+          <div class="h2 total">{{ index.getTotal() | currency }}</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="footer row"></div>
+
+  <script src="/bundle.js"></script>
+</body>
+</html>
