@@ -55,23 +55,39 @@
 
       <div class="product-row">
         <div class="product" ng-repeat="product in index.products" ng-class="{'selected': (index.selectedProduct == product)}">
-          <img alt="Image" ng-src="{{product.images[0]}}" ng-click="index.toggleProductDetails(product)">
+          <img alt="Image" class="image-main" ng-src="{{product.images[0]}}" ng-click="index.toggleProductDetails(product)">
 
           <div class="details-popup">
-            <div class="description" ng-bind-html="index.selectedProduct.description | trust"></div>
+            <div class="row details-container">
+              <div class="col gallery-container">
+                <div class="row">
+                  <div class="col">
+                    <img ng-src="{{product.images[0]}}" alt="Primary" class="image-primary">
+                  </div>
 
-            <div class="add-to-cart">
-              <div class="btn-group">
-                <div ng-if="index.selectedProduct.amount > 0">
-                  <input type="number" min-value="1" value="1">
-                  <button class="btn btn-lg btn-primary" ng-click="index.addToCart(index.selectedProduct)">Add to cart</button>
-                  <div class="spacer"></div>
+                  <div class="col thumbnail-container">
+                    <img ng-src="{{image}}" alt="Thumbnail" class="image-thumbnail" ng-repeat="image in product.images" ng-if="$index > 0">
+                  </div>
                 </div>
-                <div class="price">{{ index.selectedProduct.price | currency }}</div>
               </div>
 
-              <div class="small" ng-if="index.selectedProduct.amount > 0">{{index.selectedProduct.amount}} <ng-pluralize count="index.selectedProduct.amount" when="{'1': 'item', 'other': 'items'}"></ng-pluralize> available</div>
-              <div class="small text-danger" ng-if="index.selectedProduct.amount <= 0">This product is currently inavailable</div>
+              <div class="col description-container">
+                <div class="description" ng-bind-html="index.selectedProduct.description | trust"></div>
+
+                <div class="add-to-cart">
+                  <div class="price">{{ index.selectedProduct.price | currency }}</div>
+
+                  <div class="btn-group">
+                    <div ng-if="index.selectedProduct.amount > 0">
+                      <input type="number" min-value="1" value="1" class="amount">
+                      <button class="btn btn-lg btn-primary" ng-click="index.addToCart(index.selectedProduct)">Add to cart</button>
+                      <div class="spacer"></div>
+                    </div>
+                  </div>
+
+                  <div class="small" ng-if="index.selectedProduct.amount > 0">{{index.selectedProduct.amount}} <ng-pluralize count="index.selectedProduct.amount" when="{'1': 'item', 'other': 'items'}"></ng-pluralize> available</div>
+                  <div class="small text-danger" ng-if="index.selectedProduct.amount <= 0">This product is currently inavailable</div>
+              </div>
             </div>
           </div>
         </div>
