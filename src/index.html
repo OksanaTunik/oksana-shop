@@ -57,7 +57,7 @@
         <div class="product" ng-repeat="product in index.products" ng-class="{'selected': (index.selectedProduct == product)}">
           <img alt="Image" ng-src="{{product.images[0]}}" ng-click="index.toggleProductDetails(product)">
 
-          <div class="details-popup" ng-if="index.selectedProduct == product">
+          <div class="details-popup">
             <div class="description" ng-bind-html="index.selectedProduct.description | trust"></div>
 
             <div class="add-to-cart">
