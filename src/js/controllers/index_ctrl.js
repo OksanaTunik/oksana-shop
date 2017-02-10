@@ -28,7 +28,7 @@
           title: 'Poducha #1',
           price: 9.99,
           description: 'Super poducha dziecięca w rybim kształcie',
-          images: ['1', '2', '3', '4'],
+          images: ['/img/products/5.jpg', '/img/products/1.jpg', '/img/products/0.jpg', '/img/products/3.jpg', '/img/products/2.jpg', '/img/products/4.jpg'],
           amount: 1
         },
         {
@@ -36,7 +36,7 @@
           title: 'Poducha #2',
           price: 9.99,
           description: 'Super poducha dziecięca w kształcie gwiazdki',
-          images: ['1', '2'],
+          images: ['/img/products/4.jpg', '/img/products/1.jpg', '/img/products/0.jpg', '/img/products/3.jpg', '/img/products/2.jpg', '/img/products/5.jpg'],
           amount: 1
         },
         {
@@ -44,7 +44,7 @@
           title: 'Poducha #3',
           price: 9.99,
           description: 'Super poducha-chmurka dziecięca',
-          images: ['1', '2', '3', '4', '5', '6'],
+          images: ['/img/products/1.jpg', '/img/products/5.jpg', '/img/products/0.jpg', '/img/products/3.jpg', '/img/products/2.jpg', '/img/products/4.jpg'],
           amount: 1
         },
         {
@@ -52,7 +52,7 @@
           title: 'Poducha #4',
           price: 9.99,
           description: 'Super poducha okrągła dziecięca',
-          images: ['1', '2', '3'],
+          images: ['/img/products/2.jpg', '/img/products/1.jpg', '/img/products/0.jpg', '/img/products/3.jpg', '/img/products/5.jpg', '/img/products/4.jpg'],
           amount: 5
         },
         {
@@ -60,7 +60,7 @@
           title: 'Kocyk #1',
           price: 19.99,
           description: 'Super koc dziecięcy w stylistyce poduchi-chmurki Super koc dziecięcy w sty<br>listyce poduchi-chmurkiSuper koc dziecięcy w stylistyce poduchi-chmurkiSuper koc dziecięcy w stylistyce poduchi-chmurkiSuper koc dziecięcy w stylistyce poduchi-chmurki',
-          images: ['1', '2', '3', '4', '5'],
+          images: ['/img/products/7.jpg', '/img/products/1.jpg', '/img/products/0.jpg', '/img/products/3.jpg', '/img/products/2.jpg', '/img/products/4.jpg'],
           amount: 1
         },
         {
@@ -68,7 +68,7 @@
           title: 'Poducha #5',
           price: 9.99,
           description: 'Super poducha okrągła dziecięca',
-          images: ['1', '2', '3', '4'],
+          images: ['/img/products/6.jpg', '/img/products/1.jpg', '/img/products/0.jpg', '/img/products/3.jpg', '/img/products/2.jpg', '/img/products/4.jpg'],
           amount: 5
         },
         {
@@ -76,7 +76,7 @@
           title: 'Poducha #4',
           price: 9.99,
           description: 'Super poducha okrągła dziecięca',
-          images: ['1', '2'],
+          images: ['/img/products/3.jpg', '/img/products/1.jpg', '/img/products/0.jpg', '/img/products/7.jpg', '/img/products/2.jpg', '/img/products/4.jpg'],
           amount: 5
         }
       ];

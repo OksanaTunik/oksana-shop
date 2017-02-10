@@ -55,7 +55,9 @@
 
       <div class="product-row">
         <div class="product" ng-repeat="product in index.products" ng-class="{'selected': (index.selectedProduct == product)}">
-          <img alt="Image" class="image-main" ng-src="{{product.images[0]}}" ng-click="index.toggleProductDetails(product)">
+          <div class="image-main">
+            <img alt="Image" ng-src="{{product.images[0]}}" ng-click="index.toggleProductDetails(product)">
+          </div>
 
           <div class="details-popup">
             <div class="row details-container">
@@ -66,7 +68,7 @@
                   </div>
 
                   <div class="col thumbnail-container">
-                    <img ng-src="{{image}}" alt="Thumbnail" class="image-thumbnail" ng-repeat="image in product.images" ng-if="$index > 0">
+                    <img ng-src="{{image}}" alt="Thumbnail" class="image-thumbnail" ng-repeat="image in product.images track by $index" ng-if="$index > 0">
                   </div>
                 </div>
               </div>
