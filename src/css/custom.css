@@ -2,8 +2,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Delius');
 
-/*@import url('https://fonts.googleapis.com/css?family=Pacifico');*/
-
 @import url('https://fonts.googleapis.com/css?family=Crafty+Girls');
 .h1,
 .h2,
@@ -144,8 +142,6 @@ section:not(#products) {
   flex-grow: 1;
 }
 
-.product .details-popup .details-container {}
-
 .product .details-popup .description {
   flex-grow: 1;
 }
@@ -158,12 +154,24 @@ section:not(#products) {
   margin-right: 10px;
 }
 
-.product .details-popup .gallery-container .image-primary {
+.product .image-primary {
   margin: 10px;
   min-width: 430px;
   max-width: 430px;
   width: 430px;
   height: 430px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background: #fff;
+}
+
+.product .image-primary img {
+    max-width: 430px;
+    max-height: 430px;
+    width: auto;
+    height: auto;
 }
 
 .product .details-popup .gallery-container .thumbnail-container {
@@ -253,17 +261,6 @@ section:not(#products) {
 
 /* HR WITH ORNAMENT IN THE MIDDLE */
 
-
-/*hr:after {
-  background: url('/.png') no-repeat top center;
-  content: "";
-  display: block;
-  height: 30px;
-  position: relative;
-  top: -15px;
-}
-*/
-
 hr {
   line-height: 1em;
   position: relative;
@@ -293,9 +290,7 @@ hr:after {
   color: black;
   padding: 0 0.5em;
   line-height: 1.5em;
-  /*color: #818078;*/
   color: black;
-  /*background-color: #fcfcfa;*/
   background-color: #fcfcfc;
 }
 
