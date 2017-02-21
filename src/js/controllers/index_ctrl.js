@@ -60,7 +60,7 @@
           title: 'Kocyk #1',
           price: 19.99,
           description: 'Super koc dziecięcy w stylistyce poduchi-chmurki Super koc dziecięcy w sty<br>listyce poduchi-chmurkiSuper koc dziecięcy w stylistyce poduchi-chmurkiSuper koc dziecięcy w stylistyce poduchi-chmurkiSuper koc dziecięcy w stylistyce poduchi-chmurki',
-          images: ['/img/products/7.jpg', '/img/products/1.jpg', '/img/products/0.jpg', '/img/products/3.jpg', '/img/products/2.jpg', '/img/products/4.jpg'],
+          images: ['/img/products/4.jpg', '/img/products/1.jpg', '/img/products/0.jpg', '/img/products/3.jpg', '/img/products/2.jpg', '/img/products/4.jpg'],
           amount: 1
         },
         {
@@ -76,7 +76,7 @@
           title: 'Poducha #4',
           price: 9.99,
           description: 'Super poducha okrągła dziecięca',
-          images: ['/img/products/3.jpg', '/img/products/1.jpg', '/img/products/0.jpg', '/img/products/7.jpg', '/img/products/2.jpg', '/img/products/4.jpg'],
+          images: ['/img/products/3.jpg', '/img/products/1.jpg', '/img/products/0.jpg', '/img/products/4.jpg', '/img/products/2.jpg', '/img/products/4.jpg'],
           amount: 5
         }
       ];

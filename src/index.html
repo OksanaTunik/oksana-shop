@@ -20,7 +20,7 @@
       </div>
 
       <div class="row">
-        <em>One-line description</em>
+        <em>One-line description ololollo</em>
       </div>
     </div>
 
@@ -30,9 +30,16 @@
   </div>
 
   <div class="row navigation">
-    <div class="col"><a href="#about">About</a></div>
-    <div class="col"><a href="#products">Products</a></div>
-    <div class="col"><a href="#contact">Contact</a></div>
+    <div class = "col">
+      <a href="#products">Products</a>
+      <a href="#instashop">Instashop</a>
+      <a href="#contact">Contact us</a>
+    </div>
+    <div class = "col">
+      <a href="#lookbook">Lookbook</a>
+      <a href="#story">Our story</a>
+      <a href="#bag">Bag</a>
+    </div>
   </div>
 
   <div class="container-fluid">
@@ -57,6 +64,7 @@
         <div class="product" ng-repeat="product in index.products" ng-class="{'selected': (index.selectedProduct == product)}">
           <div class="image-main">
             <img alt="Image" ng-src="{{product.images[0]}}" ng-click="index.toggleProductDetails(product)">
+              <a href="http://google.com" class="cornerLink">Link</a>
           </div>
 
           <div class="details-popup">
@@ -83,14 +91,21 @@
 
                   <div class="btn-group">
                     <div ng-if="index.selectedProduct.amount > 0">
-                      <input type="number" min-value="1" value="1" class="amount">
-                      <button class="btn btn-lg btn-primary" ng-click="index.addToCart(index.selectedProduct)">Add to cart</button>
+                      <div class = "col amountProducts">
+                        <div class = "col">
+                          <input type="number" min-value="1" value="1" class="amount">
+                        </div>  
+                        <div class = "col">
+                          <div class="small" ng-if="index.selectedProduct.amount > 0">{{index.selectedProduct.amount}} <ng-pluralize count="index.selectedProduct.amount" when="{'1': 'item', 'other': 'items'}"></ng-pluralize> available</div>
+                          <div class="small text-danger" ng-if="index.selectedProduct.amount <= 0">This product is currently inavailable</div>
+                        </div>
+                      </div>
+                      <div class = "col">
+                        <button class="btn btn-lg btn-primary" ng-click="index.addToCart(index.selectedProduct)">Add to cart</button>
+                      </div>
                       <div class="spacer"></div>
                     </div>
                   </div>
-
-                  <div class="small" ng-if="index.selectedProduct.amount > 0">{{index.selectedProduct.amount}} <ng-pluralize count="index.selectedProduct.amount" when="{'1': 'item', 'other': 'items'}"></ng-pluralize> available</div>
-                  <div class="small text-danger" ng-if="index.selectedProduct.amount <= 0">This product is currently inavailable</div>
               </div>
             </div>
           </div>
@@ -101,7 +116,44 @@
     <hr data-content="Contact">
 
     <section id="contact" class="row">
-      <p><em>Contact information</em></p>
+      <div class="column2 outer-div">
+        <b>General Enquiries</b><br/>
+
+        <p>If you have a general enquiry check out our FAQ page where you may find your question is already answered! For all order, webstore and general enquiries, please email us here:
+        info@thehorse.com.au. Please allow up to 24 hours for your email to be responded to.</p>
+        <b>Wholesale</b><br/>
+        <p>If you are a distributor or store interested in working with us: 
+        ben@thehorse.com.au
+        </p>
+      </div>
+      <div class="column2 outer-div">
+        <div class="form-container">
+          <form>
+            <ul class="side-lbl">
+              <li class="input-wrapper">
+                <label for="groupName">Your Name</label>
+                <input type="text" id="groupName" placeholder="Enter your first name here">
+              </li>
+              <li class="input-wrapper">
+                <label for="phone">Your Email Address</label>
+                <input type="tel" id="phone" placeholder="Enter your phone here">
+              </li>
+              <li class="input-wrapper">
+                <label for="phone">Contact Number</label>
+                <input type="tel" id="phone" placeholder="Enter your phone here">
+              </li>
+              <li class="input-wrapper">
+                <label for="message">Message</label>
+                <textarea rows="6" id="message" placeholder="Enter your message here"></textarea>
+              </li>
+              
+              <li>
+                <button type="submit">Send</button>
+              </li>
+            </ul>
+          </form>
+        </div>
+      </div>
     </section>
 
     <hr data-content="&#x2740; &#x2741; &#x2748; Your cart &#x2748; &#x2766; &#x2767;" ng-show="index.cart.items.length > 0">
@@ -138,7 +190,71 @@
     </section>
   </div>
 
-  <div class="footer row"></div>
+  <hr data-content="Instashop">
+
+  <section id="instashop" class="row">
+      <p><em>7 to 8 sentences, describing the whole idea and the workflow</em></p>
+  </section>
+
+  <hr data-content="Our story">
+
+  <section id="story" class="row">
+      <div class = "column2">
+        <p>
+          The Horse is a curated collection of leather lifestyle goods, owned and operated by husband and wife Scott and Amy Hawkes in their studio in Sydney, Australia. 
+
+          Together with a small team, we create classic, go-to pieces designed to be agelessly refined.
+
+          People new to the story don’t realise that The Horse was established in 2009 by Scott and our friend Gabrielle as a leather footwear label over a coffee one sunny Sunday afternoon, after seeing a man walk past wearing beautiful brown leather shoes and no socks. 
+
+          These staple styles, solidly made, quickly became a favourite with the well-heeled.
+
+          Working alongside each other as a young married couple on a brand and product we believed in was exciting, but the early days made for some testing times and taught us so many lessons. One of our biggest milestones happened in the Spring of 2013, when The Horse launched ‘The Original’ collection of timepieces, which have since become a mainstay of The Horse brand. 
+
+          Our design philosophy centres around magnifying what is essential and editing out excess, "buying once, and buying well” and we’re always seeking to refine and expand our collection.
+
+
+          Welcome to the family,
+        </p>
+      </div>
+      <div class = "column2 centering">
+        <img src="https://cdn.shopify.com/s/files/1/0233/5133/files/about-image_large.jpg?14917392989539256001"></div>
+      <p><em></em></p>
+  </section>
+
+  <div class="footer row">
+     <div class = "column">
+     <img src="https://cdn.shopify.com/s/files/1/0233/5133/t/28/assets/img_footer-logo.png?8368300429789198707" alt="">
+     <p>The Horse is a curated collection of leather classics designed in Sydney, established in 2009.</p>
+
+            <p><b>KONTAKT</b><br>
+            <b>Tel kom.: 889 594 665</b><br>
+            <b>krawiectwo.flamento(at)gmail.com</b><br>
+            <b>ul. Brzegowa 123/5, Dzierżoniów</b><br>
+            <b>(I-klatka, II-piętro)</b><br>
+            </p>
+        </div>
+        <div class = "column">
+          <div>ABOUT</div>
+          <div>Our Story</div>
+          <div>Careers</div>
+          <div>Instashop</div>
+          <div>Contact Us</div>
+        </div>
+        <div class = "column">
+        <p>
+            <b>GODZINY OTWARCIA</b><br>
+            <b>pon. - wt. </b>12:00 - 20:00<br>
+            <b>śr. - pt.</b> 09:00 - 18:00<br>
+            <b>sobota</b> 12:00 - 16:00<br>
+            </p>
+        </div>
+         <div class = "column">
+          <div>FAQs</div>
+          <div>Shipping</div>
+          <div>Exchange & Returns</div>
+        </div>
+  </div>
 
   <script src="/bundle.js"></script>
 </body>

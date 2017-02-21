@@ -18,6 +18,7 @@ hr {
 
 .row {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
 }
 
@@ -26,12 +27,13 @@ hr {
   flex-direction: column;
 }
 
-
 /* CUSTOM */
 
 body {
   font-family: 'Delius', cursive;
   background-image: url('/img/crossword.png');
+
+  padding: 3em;
   /*background-image: url('/img/greyzz.png');*/
 }
 
@@ -101,6 +103,7 @@ section:not(#products) {
   justify-content: center;
   max-height: 250px;
   overflow: hidden;
+  position: relative;
 }
 
 .product .image-main img {
@@ -127,7 +130,6 @@ section:not(#products) {
 
 .product.selected .details-popup {
   height: 450px;
-  padding: 3em;
   visibility: visible;
   margin-top: 0;
   opacity: 1;
@@ -188,8 +190,17 @@ section:not(#products) {
 }
 
 .add-to-cart .btn-group {
-  display: flex;
   align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 2em;
+}
+
+.amountProducts{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .add-to-cart .spacer {
@@ -246,17 +257,49 @@ section:not(#products) {
 }
 
 .navigation {
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .navigation .col {
+  display: flex;
+  flex-direction: row;
+}
+
+.navigation .col a {
+  text-decoration: none;
   margin: 0 5px;
   font-size: 1.25em;
 }
 
-.navigation a {
-  text-decoration: none;
+#ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
 }
+#ul .li{
+    flex: 1;
+    /*background: url("http://www.milkhandmade.com/files/theme/nav-sep.jpg?1482946822") no-repeat right center;*/
+}
+#ul .li:first-child{
+    border-top:0;
+    justify-content: flex-start;
+}
+#ul .li a{
+    display:block;
+    text-decoration:none;
+    padding:10px;
+    text-align:center;
+    color:#00A0AA;
+    font-size:18px;
+    border:1px solid #FFF;
+}
+#ul .li a:hover{
+    color:#000;
+    background-image:none;
+}
+
 
 
 /* HR WITH ORNAMENT IN THE MIDDLE */
@@ -362,6 +405,148 @@ hr:after {
   position: absolute;
   top: 19px;
   left: 19px;
+}
+
+/*overlay*/
+.image-main img {
+    display: block;
+}
+.image-main .cornerLink {
+    opacity: 0;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    padding: 20px 0px;
+    color: #000;
+    background: #fff;
+    text-decoration: none;
+    text-align: center;
+    -webkit-transition: opacity 500ms;
+    -moz-transition: opacity 500ms;
+    -o-transition: opacity 500ms;
+    transition: opacity 500ms;
+    
+}
+.image-main:hover .cornerLink {
+    opacity: 0.8;
+}
+
+/*contactForm*/
+.outer-div {
+  margin: 0 auto;
+  padding:20px;
+}
+
+.form-container {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-container * {
+  box-sizing: border-box;
+}
+
+.side-lbl,
+.inner-lbl {
+  list-style-type: none;
+  padding: 0;
+}
+
+.side-lbl {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.side-lbl li,
+.inner-lbl {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.inner-lbl {
+  padding: 0 8px;
+  justify-content: space-between;  
+}
+
+.side-lbl > li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.side-lbl li label,
+.side-lbl li p {
+  padding: 8px;
+  font-weight: 300;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.side-lbl > li > label,
+.side-lbl li p {
+  flex: 1 0 120px;
+  max-width: 220px;
+}
+
+.side-lbl > li > label + *,
+.inner-lbl {
+  flex: 1 0 220px;
+}
+
+.side-lbl li p {
+  margin: 0;
+}
+
+.side-lbl li input:not([type='checkbox']),
+.side-lbl li textarea {
+  padding: 15px;
+}
+
+.side-lbl li button {
+  margin-left: auto;
+  padding: 8px 16px;
+  background: #333;
+  color: #f2f2f2;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  border-radius: 2px;
+}
+
+.inner-lbl li {
+  width: 100px;
+}
+
+.select-wrapper:after{
+  content: "\f0dc";
+  font-family: FontAwesome;
+  position:relative;
+  right:20px;
+}
+.input-wrapper:after{
+  content: "\f0dc";
+  position:relative;
+  color:white;
+}
+
+/*footer*/
+
+.footer{
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 2em;
+}
+.column{
+    flex:2;
+}
+.column1{
+    flex:1;
+    justify-content: center;
+}
+.column2{
+    flex:2;
 }
 
 @keyframes cssload-loader {
