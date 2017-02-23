@@ -11,7 +11,7 @@ gulp.task('bundle_js', function () {
     gulp.src(['src/js/**/*.js']),
     concat('bundle.js'),
     babel({ presets: ['es2015'] }),
-    uglify(),
+    // uglify(),
     gulp.dest('build')
   ]);
 });
@@ -20,7 +20,7 @@ gulp.task('bundle_css', function () {
   pump([
     gulp.src(['src/css/**/*.css']),
     concat('bundle.css'),
-    cleanCss(),
+    // cleanCss(),
     gulp.dest('build')
   ]);
 });
