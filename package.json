@@ -5,8 +5,7 @@
   "main": "",
   "scripts": {
     "build": "./node_modules/gulp/bin/gulp.js",
-    "watch": "./node_modules/gulp/bin/gulp.js watch",
-    "serve": "./node_modules/simplehttpserver/cli.js build"
+    "watch": "./node_modules/gulp/bin/gulp.js watch"
   },
   "author": "",
   "license": "ISC",
@@ -17,8 +16,8 @@
     "gulp-bower": "^0.0.13",
     "gulp-clean-css": "3.0.0",
     "gulp-concat": "2.6.1",
+    "gulp-connect": "^5.0.0",
     "gulp-uglify": "2.0.1",
-    "pump": "1.0.2",
-    "simplehttpserver": "~0.0.6"
+    "pump": "1.0.2"
   }
 }

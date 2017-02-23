@@ -19,6 +19,11 @@
     vm.addToCart = addToCart;
     vm.toggleProductDetails = toggleProductDetails;
 
+    vm.startGalleryAutoScroll = startGalleryAutoScroll;
+    vm.stopGalleryAutoScroll = stopGalleryAutoScroll;
+
+    vm.changeSelectedImageIndexTimeout = 5 * 1000;
+
     activate();
 
     function activate() {
@@ -92,20 +97,27 @@
       product.amount--;
     }
 
+    function startGalleryAutoScroll() {
+      vm.selectedImageIndexIntervalId = setInterval(function () {
+        vm.selectedImageIndex = (vm.selectedImageIndex + 1) % vm.selectedProduct.images.length;
+        $scope.$apply();
+      }, vm.changeSelectedImageIndexTimeout);
+    }
+
+    function stopGalleryAutoScroll() {
+      clearInterval(vm.selectedImageIndexIntervalId);
+    }
+
     function toggleProductDetails(product) {
       if (vm.selectedProduct && product.id == vm.selectedProduct.id) {
         vm.selectedProduct = null;
 
-        clearInterval(vm.selectedImageIndexIntervalId);
+        vm.stopGalleryAutoScroll();
       } else {
         vm.selectedProduct = product;
         vm.selectedImageIndex = 0;
-        vm.changeSelectedImageIndexTimeout = 5 * 1000;
 
-        vm.selectedImageIndexIntervalId = setInterval(function () {
-          vm.selectedImageIndex = (vm.selectedImageIndex + 1) % vm.selectedProduct.images.length;
-          $scope.$apply();
-        }, vm.changeSelectedImageIndexTimeout);
+        vm.startGalleryAutoScroll();
       }
     }
   }
