@@ -3,9 +3,9 @@
 
   angular
     .module('ShoppingCartApp')
-    .controller('SliderCtrl', SliderCtrl);
+    .controller('CarouselCtrl', CarouselCtrl);
 
-  function SliderCtrl() {
+  function CarouselCtrl() {
     var vm = this;
 
     vm.cart = {

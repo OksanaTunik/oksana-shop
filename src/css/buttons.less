@@ -1,0 +1,25 @@
+.add-to-cart{
+  align-items: center;
+  margin-top: 2em;
+  .flex
+}
+.btn {
+  border-radius: 6px;
+  padding: 1em;
+  border: @button-border-size @button-border-color;
+  font-size: 16px;
+}
+
+.btn.btn-primary[disabled] {
+  border: @button-border-size @button-border-color;
+  background-color: @button-border-color;
+}
+
+.btn.btn-primary {
+  background-color: @button-color;
+  border: @button-border-size @button-color;
+  color: white;
+  vertical-align: middle;
+  width: 300px;
+  min-width: 300px;
+}

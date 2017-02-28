@@ -1,0 +1,112 @@
+
+.promo p {
+    padding: 11px 20px 9px;
+    margin: 0;
+    font-size: 12px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    line-height: 1;
+}
+
+.header .col {
+  flex-grow: 1;
+}
+
+.header .text-container {
+  flex-grow: 2;
+}
+
+.header .avatar-container {
+  text-align: center;
+}
+
+.avatar {
+  max-width: 80px;
+  max-height: 80px;
+  width: 80px;
+  height: 80px;
+}
+
+.img-circle {
+  border-radius: 50%;
+}
+
+
+.amountProducts{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 1.5em;
+}
+
+.btnCard{
+  margin-bottom: 20px;
+}
+
+.add-to-cart .spacer {
+  width: 1em;
+  display: inline-block;
+}
+
+.price {
+  font-size: 2.5em;
+}
+
+.add-to-cart .amount {
+  width: 2em;
+  font-size: 1.7em;
+  vertical-align: middle;
+}
+
+
+
+.img-rounded {
+  border-radius: 2%;
+}
+
+.loader-container {
+  min-height: 3em;
+}
+
+
+
+/* HR WITH ORNAMENT IN THE MIDDLE */
+
+hr {
+  line-height: 1em;
+  position: relative;
+  outline: 0;
+  border: 0;
+  color: black;
+  text-align: center;
+  height: 1.5em;
+  /*opacity: 0.5;*/
+}
+
+hr:before {
+  content: '';
+  background: -webkit-linear-gradient(left, transparent, #818078, transparent);
+  background: linear-gradient(to right, transparent, #818078, transparent);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+}
+
+hr:after {
+  content: attr(data-content);
+  position: relative;
+  display: inline-block;
+  color: black;
+  padding: 0 0.5em;
+  line-height: 1.5em;
+  color: black;
+  background-color: #fcfcfc;
+}
+
+
+
+
+

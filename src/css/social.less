@@ -1,0 +1,50 @@
+
+ul.social {
+    list-style: none;
+    padding: 0;
+    margin: 0 -4px
+}
+
+ul.social li {
+    display: inline-block;
+    margin: 0 4px
+}
+
+ul.social li a {
+    display: block;
+    text-indent: 26px;
+    overflow: hidden;
+    height: 26px;
+    width: 26px
+}
+
+ul.social li a:before {
+    text-indent: 0;
+    margin-left: -26px;
+    line-height: 26px;
+    width: 26px;
+    display: inline-block;
+    text-align: center;
+    font-family: fontello;
+    font-size: 20px;
+    color: #d1d2d3;
+}
+
+ul.social li.social-facebook {
+    margin-left: -4px
+}
+
+ul.social li.social-facebook>a:before {
+    content: '\e807'
+}
+
+ul.social li.social-email>a:before {
+    content: '\e806'
+}
+
+ul.social li.social-instagram>a:before {
+    content: '\e803'
+}
+.social-share{
+  margin-top:30px;
+}

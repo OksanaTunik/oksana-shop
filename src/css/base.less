@@ -1,0 +1,131 @@
+
+.h1,
+.h2,
+hr {
+  font-family: 'Crafty Girls', cursive;
+}
+
+hr {
+  font-size: 28px;
+}
+
+img{
+    max-width: 100%;
+}
+
+body {
+  font-family: 'Delius', cursive;
+  background-image: @background-base;
+  height: 100%;
+  margin: 0;
+}
+
+.wrapper{
+  padding: 0 3em 3em 3em;
+}
+
+.header {
+  background-image: @background-dots;
+  justify-content: space-around;
+  margin-bottom: 1.5em;
+}
+
+.footer {
+  min-height: 3em;
+  background-color: @color-base;
+  padding: 1em;
+  .flex
+}
+
+.outer-div {
+  margin: 0 auto;
+  padding:20px 0;
+}
+
+section#about{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 495px;
+}
+
+.card-section{
+    background: white;
+  padding: 1em;
+  border-radius: 6px;
+}
+
+.promo {
+    background: @color-base;
+    text-align: center;
+    height: 35px;
+    line-height: 35px;
+    margin-bottom: 1.5em;
+    -webkit-font-smoothing: antialiased
+}
+
+#story .row{
+  align-items: center;
+  justify-content: center;
+}
+
+#story .form-container{
+  width:50%;
+}
+
+/*slider*/
+.instaphoto{
+  height: 250px;
+  display: inline-block;
+  transition: height 0.35s ease;
+  margin:10px 0 0 10px;
+  flex-grow: 1;  
+  width: calc(100% * (1/5) - 10px - 1px);
+}
+.instaphoto .instaphoto-main {
+  cursor: pointer;
+  max-width: 250px;
+  display: flex;
+  justify-content: center;
+  max-height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+
+.instaphoto .instaphoto-main img {
+  max-height: 250px;
+  width: auto;
+}
+
+.navigation {
+  justify-content: space-between;
+  margin: 0 3em;
+  /*border-bottom: 1px solid #F7F5F5;*/
+}
+
+.navigation .col {
+  display: flex;
+  flex-direction: row;
+}
+
+.navigation .col a {
+  text-decoration: none;
+  margin: 0 5px;
+  font-size: 1.1em;
+  line-height: 1.65;
+  color: #565a5b;
+  text-transform: uppercase;
+}
+
+hr#nav{
+  font-size: 15px;
+  line-height: 1em;
+  position: relative;
+  outline: 0;
+  border: 0;
+  color: @text-color;
+  text-align: center;
+  height: 0.5em;
+}
+
+

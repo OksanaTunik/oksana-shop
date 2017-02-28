@@ -1,0 +1,86 @@
+
+.form-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-container * {
+  box-sizing: border-box;
+}
+
+.side-lbl,
+.inner-lbl {
+  list-style-type: none;
+  padding: 0;
+}
+
+.side-lbl {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.side-lbl li,
+.inner-lbl {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.inner-lbl {
+  padding: 0 8px;
+  justify-content: space-between;  
+}
+
+.side-lbl > li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.side-lbl li label,
+.side-lbl li p {
+  padding: 8px;
+  font-weight: 300;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.side-lbl > li > label,
+.side-lbl li p {
+  flex: 1 0 120px;
+  max-width: 220px;
+}
+
+.side-lbl > li > label + *,
+.inner-lbl {
+  flex: 1 0 220px;
+}
+
+.side-lbl li p {
+  margin: 0;
+}
+
+.side-lbl li input:not([type='checkbox']),
+.side-lbl li textarea {
+  padding: 15px;
+}
+
+.side-lbl li button {
+  margin-left: auto;
+
+}
+
+.inner-lbl li {
+  width: 100px;
+}
+
+.select-wrapper:after{
+  content: "\f0dc";
+  font-family: FontAwesome;
+  position:relative;
+  right:20px;
+}
+.input-wrapper:after{
+  content: "\f0dc";
+  position:relative;
+  color:white;
+}
+

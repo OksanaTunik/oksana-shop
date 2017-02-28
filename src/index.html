@@ -12,13 +12,16 @@
 
 <body ng-app="ShoppingCartApp" ng-controller="IndexCtrl as index">
   <div class="promo">
-      
-      <p>Free domestic shipping on orders over $60*</p>
-      
+
+    <p>Free domestic shipping on orders over $60*</p>
+
   </div>
-  <div class="header row wrapper">
+  <div class="header row">
     <div class="col avatar-container">
-      <img src="/img/photo.jpg" alt="Photo" class="img-circle avatar">
+      <a href="/" class="shop_logo">
+        <img src="//cdn.shopify.com/s/files/1/0885/9428/t/4/assets/logo.svg?2067825696143971363" onerror="this.onerror=null; this.src='//cdn.shopify.com/s/files/1/0885/9428/t/4/assets/logo.png?2067825696143971363'"
+          alt="Mapamundi Kids" width="276">
+      </a>
     </div>
 
     <div class="col text-container">
@@ -50,19 +53,20 @@
   </div>
   <hr id="nav" data-content="">
 
- <!--    <section id="about" ng-controller="CarouselCtrl as carousel">
-      <div ng-repeat="card in carousel.slides">
-        <div class="slider-image">
-          <img alt="Image" ng-src="{{card.image[0]}}">
-          <a class="cornerLink">View more</a>
-        </div>
+  <section id="about" ng-controller="CarouselCtrl as carousel">
+    <div ng-repeat="card in carousel.slides">
+      <div class="slider-image">
+        <img alt="Image" ng-src="{{card.image[0]}}">
+        <a class="cornerLink">View more</a>
       </div>
-    </section> -->
+    </div>
+  </section>
 
-    <div class = "wrapper">
+  <div class="wrapper">
+    <section id="products">
       <hr data-content="Products">
 
-      <section id="products" class="row">
+      <div class="row ">
         <div class="row loader-container">
           <div class="cssload-loader" ng-show="!index.products.length">
             <div class="cssload-top"></div>
@@ -72,102 +76,112 @@
         </div>
 
         <div class="product-row">
-          <div class="product" ng-repeat="product in index.products" ng-class="{'selected': (index.selectedProduct == product)}">
 
-          <!-- TEMPLATES -->
-          <!--<script type="text/ng-template" id="/tmpl/product.html">
-          <img src="$parent.images[0]" alt="">
-        </script>
+          <div class="product col-lg-3" ng-repeat="product in index.products" ng-class="{'selected': (index.selectedProduct == product)}">
 
-        <div ng-include="'/tmpl/product.html'"></div>-->
-          <!-- END TEMPLATES -->
+            <!-- TEMPLATES -->
+            <!--<script type="text/ng-template" id="/tmpl/product.html">
+        <img src="$parent.images[0]" alt="">
+      </script>
 
-          <div class="image-main">
-            <img alt="Image" ng-src="{{product.images[0]}}" ng-click="index.toggleProductDetails(product); showDetails =! showDetails">
-            <a ng-click="index.toggleProductDetails(product)" class="cornerLink">View more</a>
-          </div>
-          <div class="image-description" ng-hide="showDetails">
-            <div class="product-title">
-              <div class="title">{{ product.title }}</div>
-            </div>
-            <div class = "image-description" ng-hide="showDetails">
+      <div ng-include="'/tmpl/product.html'"></div>-->
+            <!-- END TEMPLATES -->
+        
+            <div class="row card">
+              <div class = "image-main" style = "margin-bottom:10px;">
+              <div class="exclusive-product">EXCLUSIVE</div>
+              <img alt="Image" ng-src="{{product.images[0]}}" ng-click="index.toggleProductDetails(product); showDetails =! showDetails">
+              <a ng-click="index.toggleProductDetails(product)" class="cornerLink">View more</a>
+              </div>
+             <div class="row">
+             <div class="image-description" ng-hide="showDetails">
               <div class="product-title">
-                  <div class="title">{{ product.title }}</div>
+                <div class="title">{{ product.title }}</div>
               </div>
               <div class="product-price">
                 <span class="money" itemprop="price">
-                  <span class="money">{{ product.price}}</span>
+                <span class="money">{{ product.price}}</span>
                 </span>
               </div>
+             </div>
             </div>
-          </div>
-          <div class="details-popup">
-            <div class="row details-container">
-              <div class="col gallery-container column3 outer-div" ng-mouseenter="index.stopGalleryAutoScroll()" ng-mouseleave="index.startGalleryAutoScroll()">
-                <div class="row">
-                  <div class="col">
-                    <div class="image-primary">
-                      <img ng-src="{{product.images[index.selectedImageIndex]}}" alt="Primary">
-                    </div>
-
-                    <div class="col thumbnail-container">
-                      <img ng-src="{{image}}" alt="Thumbnail" class="image-thumbnail" ng-repeat="image in product.images track by $index" ng-if="$index > 0" ng-click="index.selectedImageIndex = $index">
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col description-container column2 outer-div">
-                  <div class="title" ng-bind-html="index.selectedProduct.title | trust"></div>
-                  <div class="description" ng-bind-html="index.selectedProduct.description | trust"></div>
-
-
-                   <!--   <div class="small text-danger" ng-if="index.selectedProduct.amount <= 0">This product is currently inavailable</div> -->
+            </div>
+            <div class="details-popup">
+              <div class="row details-container">
+                <div class="col gallery-container column3 outer-div" ng-mouseenter="index.stopGalleryAutoScroll()" ng-mouseleave="index.startGalleryAutoScroll()">
                   <div class="row">
-                      <div class="price column2">{{ index.selectedProduct.price | currency }}</div>
-                  </div>
-                  <div class="row amountProducts">
-                      <div class="col">
-                        <div>quantity</div>
+                    <div class="col">
+                      <div class="col thumbnail-container">
+                        <img ng-src="{{image}}" alt="Thumbnail" class="image-thumbnail" ng-repeat="image in product.images track by $index" ng-if="$index > 0"
+                          ng-click="index.selectedImageIndex = $index">
                       </div>
-                      <div class="col">
-                        <input type="number" min-value="1" value="1" class="amount">
+                    </div>
+                    <div class="col">
+                      <div class="image-primary">
+                        <img ng-src="{{product.images[index.selectedImageIndex]}}" alt="Primary">
                       </div>
-                      <div class="col">
-                        <div class="small" ng-if="index.selectedProduct.amount > 0">{{index.selectedProduct.amount}} <ng-pluralize count="index.selectedProduct.amount" when="{'1': 'item', 'other': 'items'}"></ng-pluralize> available</div>
-                        <div class="small text-danger" ng-if="index.selectedProduct.amount <= 0">This product is currently inavailable</div>
-                          
+                    </div>
+                    <div class="col">
+                      <div class="description-container column2 outer-div">
+                        <div class="title" ng-bind-html="index.selectedProduct.title | trust"></div>
+                        <div class="description" ng-bind-html="index.selectedProduct.description | trust"></div>
+
+                        <!--   <div class="small text-danger" ng-if="index.selectedProduct.amount <= 0">This product is currently inavailable</div> -->
+                        <div class="row">
+                          <div class="price column2">{{ index.selectedProduct.price | currency }}</div>
+                        </div>
+                        <div class="row amountProducts">
+                          <div class="col">
+                            <div>quantity</div>
+                          </div>
+                          <div class="col">
+                            <input type="number" min-value="1" value="1" class="amount">
+                          </div>
+                          <div class="col">
+                            <div class="small" ng-if="index.selectedProduct.amount > 0">{{index.selectedProduct.amount}}
+                              <ng-pluralize count="index.selectedProduct.amount" when="{'1': 'item', 'other': 'items'}"></ng-pluralize> available</div>
+                            <div class="small text-danger" ng-if="index.selectedProduct.amount <= 0">This product is currently inavailable</div>
+
+                          </div>
+                        </div>
+                        <div class="row add-to-cart">
+                          <div class="column2" ng-if="index.selectedProduct.amount > 0">
+                            <button class="btn btn-lg btn-primary" ng-click="index.addToCart(index.selectedProduct)">Add to cart</button>
+                          </div>
+                          <div class="column2 social-buttons">
+                            <div> share this item</div>
+                            <ul class="social">
+                              <li class="social-facebook">
+                                <a class="popup" href="" target="_blank"></a>
+                              </li>
+                              <li class="social-instagram">
+                                <a href=""></a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
                       </div>
-                  </div>
-                  <div class="row add-to-cart">
-                      <div class="column2" ng-if="index.selectedProduct.amount > 0">
-                        <button class="btn btn-lg btn-primary" ng-click="index.addToCart(index.selectedProduct)">Add to cart</button>
-                      </div>
-                      <div class = "column2 social-buttons">
-                        <div> share this item</div>
-                        <ul class="social">
-                          <li class="social-facebook"><a class="popup" href="" target="_blank"></a></li>
-                          <li class="social-instagram"><a href=""></a></li>
-                        </ul>
-                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+    </section>
 
+    <section id="contact">
       <hr data-content="Contact">
 
-      <section id="contact" class="row">
+      <div class="row card-section">
         <div class="column2 outer-div">
           <b>General Enquiries</b><br/>
 
-          <p>If you have a general enquiry check out our FAQ page where you may find your question is already answered! For all order, webstore and general enquiries, please email us here:
-          info@thehorse.com.au. Please allow up to 24 hours for your email to be responded to.</p>
+          <p>If you have a general enquiry check out our FAQ page where you may find your question is already answered! For
+            all order, webstore and general enquiries, please email us here: info@thehorse.com.au. Please allow up to 24
+            hours for your email to be responded to.</p>
           <b>Wholesale</b><br/>
-          <p>If you are a distributor or store interested in working with us: 
-          ben@thehorse.com.au
+          <p>If you are a distributor or store interested in working with us: ben@thehorse.com.au
           </p>
         </div>
         <div class="column2 outer-div">
@@ -190,113 +204,132 @@
                   <label for="message">Message</label>
                   <textarea rows="6" id="message" placeholder="Enter your message here"></textarea>
                 </li>
-                
+
                 <li>
-                  <button type="submit">Send</button>
+                <!--<button type="submit">Send</button>-->
+                <button type="submit" name="send" class="add-to-cart btn btn-default btn-lg">Add to cart</button>
                 </li>
               </ul>
             </form>
           </div>
         </div>
-      </section>
-
-      <hr data-content="&#x2740; &#x2741; &#x2748; Your cart &#x2748; &#x2766; &#x2767;" ng-show="index.cart.items.length > 0">
-
-      <section id="cart" class="row" ng-show="index.cart.items.length">
-        <div class="row" ng-repeat="cartItem in index.cart.items">
-          <div class="col-md-3 col-xs-12">
-            <img ng-src="{{cartItem.image}}" alt="Image" class="img-rounded">
-          </div>
-
-          <div class="col-md-9 col-xs-12">
-            <div class="row">
-              <div class="col-xs-12 title">{{cartItem.title}}</div>
-            </div>
-
-            <div class="row">
-              <div class="col-xs-12 price">
-                <div class="product-price">{{cartItem.price | currency}}</div>
-                <div class="amount">{{cartItem.amount}}</div>
-                <div class="subtotal">{{(cartItem.price * cartItem.amount) | currency}}</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-9">
-            <hr>
-          </div>
-          <div class="col-xs-3">
-            <div class="h2 total">{{ index.getTotal() | currency }}</div>
-          </div>
-        </div>
-      </section>
-
-    <hr data-content="@petitcollage on Instagram">
-
-    <section id="instashop" class="row">
-        <p><em>7 to 8 sentences, describing the whole idea and the workflow</em></p>
-        <button type="submit" name="add" id="purchase" class="add-to-cart btn btn-default btn-lg">Add to cart</button>
+      </div>
     </section>
 
-    <hr data-content="Our story">
+    <hr data-content="&#x2740; &#x2741; &#x2748; Your cart &#x2748; &#x2766; &#x2767;" ng-show="index.cart.items.length > 0">
 
-    <section id="story" class="row">
-        <div class = "column2 outer-div">
+    <section id="cart" class="row card-section" ng-show="index.cart.items.length">
+      <div class="row" ng-repeat="cartItem in index.cart.items">
+        <div class="col-md-3 col-xs-12">
+          <img ng-src="{{cartItem.image}}" alt="Image" class="img-rounded">
+        </div>
+
+        <div class="col-md-9 col-xs-12">
+          <div class="row">
+            <div class="col-xs-12 title">{{cartItem.title}}</div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 price">
+              <div class="product-price">{{cartItem.price | currency}}</div>
+              <div class="amount">{{cartItem.amount}}</div>
+              <div class="subtotal">{{(cartItem.price * cartItem.amount) | currency}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-9">
+          <hr>
+        </div>
+        <div class="col-xs-3">
+          <div class="h2 total">{{ index.getTotal() | currency }}</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="instashop">
+      <hr data-content="@petitcollage on Instagram">
+
+      <div class="row card-section">
+        <p><em>7 to 8 sentences, describing the whole idea and the workflow</em></p>
+        <button type="submit" name="add" id="purchase" class="add-to-cart btn btn-default btn-lg">Add to cart</button>
+      </div>
+    </section>
+
+    <section id="story">
+      <hr data-content="Our story">
+
+      <div class="row card-section">
+        <div class="column2 outer-div">
           <p>
-            The Horse is a curated collection of leather lifestyle goods, owned and operated by husband and wife Scott and Amy Hawkes in their studio in Sydney, Australia. </p>
+            The Horse is a curated collection of leather lifestyle goods, owned and operated by husband and wife Scott and Amy Hawkes
+            in their studio in Sydney, Australia. </p>
 
-            <p>Together with a small team, we create classic, go-to pieces designed to be agelessly refined.</p>
+          <p>Together with a small team, we create classic, go-to pieces designed to be agelessly refined.</p>
 
-            <p>People new to the story don’t realise that The Horse was established in 2009 by Scott and our friend Gabrielle as a leather footwear label over a coffee one sunny Sunday afternoon, after seeing a man walk past wearing beautiful brown leather shoes and no socks.</p>
+          <p>People new to the story don’t realise that The Horse was established in 2009 by Scott and our friend Gabrielle
+            as a leather footwear label over a coffee one sunny Sunday afternoon, after seeing a man walk past wearing beautiful
+            brown leather shoes and no socks.</p>
 
-            <p>These staple styles, solidly made, quickly became a favourite with the well-heeled.</p>
+          <p>These staple styles, solidly made, quickly became a favourite with the well-heeled.</p>
 
-            <p>Working alongside each other as a young married couple on a brand and product we believed in was exciting, but the early days made for some testing times and taught us so many lessons. One of our biggest milestones happened in the Spring of 2013, when The Horse launched ‘The Original’ collection of timepieces, which have since become a mainstay of The Horse brand.</p>
+          <p>Working alongside each other as a young married couple on a brand and product we believed in was exciting, but
+            the early days made for some testing times and taught us so many lessons. One of our biggest milestones happened
+            in the Spring of 2013, when The Horse launched ‘The Original’ collection of timepieces, which have since become
+            a mainstay of The Horse brand.</p>
 
-            <p>Our design philosophy centres around magnifying what is essential and editing out excess, "buying once, and buying well” and we’re always seeking to refine and expand our collection.</p>
+          <p>Our design philosophy centres around magnifying what is essential and editing out excess, "buying once, and buying
+            well” and we’re always seeking to refine and expand our collection.</p>
 
-            <p>Petit Collage is all about good design. We combine a modern aesthetic with a sustainability criteria to create bold, thoughtful goods that inspire little ones. Lovingly designed in our California studio, Petit Collage products are made to encourage creativity, play, and discovery.
-            a world of goods
-            Our goods are sold in thousands of stores. We like to think of them as happy world travelers—whether at a gift boutique in Amsterdam, a book chain in Australia, or a museum in New York City, they can be found the world over, waiting to meet new families.
-              
-            </p>
-            <p><em>Welcome to the family,</em></p>
+          <p>Petit Collage is all about good design. We combine a modern aesthetic with a sustainability criteria to create
+            bold, thoughtful goods that inspire little ones. Lovingly designed in our California studio, Petit Collage products
+            are made to encourage creativity, play, and discovery. a world of goods Our goods are sold in thousands of stores.
+            We like to think of them as happy world travelers—whether at a gift boutique in Amsterdam, a book chain in Australia,
+            or a museum in New York City, they can be found the world over, waiting to meet new families.
+
+          </p>
+          <p><em>Welcome to the family,</em></p>
         </div>
         <div class="column2 outer-div">
           <div class="form-container">
-                <img src="https://cdn.shopify.com/s/files/1/0233/5133/files/about-image_large.jpg?14917392989539256001">
+            <img src="https://cdn.shopify.com/s/files/1/0233/5133/files/about-image_large.jpg?14917392989539256001">
           </div>
         </div>
+      </div>
     </section>
 
     <div class="footer row">
-      <div class = "column4 outer-div">
+      <div class="column4 outer-div">
         <div class="form-container">
           <p>The Horse is a curated collection of leather classics designed in Sydney, established in 2009.</p>
-              <p><b>KONTAKT</b><br>
-              <b>Tel kom.: 889 594 665</b><br>
-              <b>krawiectwo.flamento(at)gmail.com</b><br>
-              <b>ul. Brzegowa 123/5, Dzierżoniów</b><br>
-              <b>(I-klatka, II-piętro)</b><br>
-              </p>
-            <ul class="social social-share">
-              <li class="social-facebook"><a class="popup" href="" target="_blank"></a></li>
-              <li class="social-instagram"><a href=""></a></li>
-            </ul>
+          <p><b>KONTAKT</b><br>
+            <b>Tel kom.: 889 594 665</b><br>
+            <b>krawiectwo.flamento(at)gmail.com</b><br>
+            <b>ul. Brzegowa 123/5, Dzierżoniów</b><br>
+            <b>(I-klatka, II-piętro)</b><br>
+          </p>
+          <ul class="social social-share">
+            <li class="social-facebook">
+              <a class="popup" href="" target="_blank"></a>
+            </li>
+            <li class="social-instagram">
+              <a href=""></a>
+            </li>
+          </ul>
         </div>
       </div>
-      <div class = "column2 outer-div">
+      <div class="column2 outer-div">
         <div class="form-container">
-            <div>ABOUT</div>
-            <div>Our Story</div>
-            <div>Careers</div>
-            <div>Instashop</div>
-            <div>Contact Us</div>
+          <div>ABOUT</div>
+          <div>Our Story</div>
+          <div>Careers</div>
+          <div>Instashop</div>
+          <div>Contact Us</div>
         </div>
       </div>
-      <div class = "column2 outer-div">
+      <div class="column2 outer-div">
         <div class="form-container">
           <div>FAQs</div>
           <div>Shipping</div>
@@ -304,8 +337,8 @@
         </div>
       </div>
     </div>
-  </div>
-  <script src="/bundle.js"></script>
+    </div>
+    <script src="/bundle.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,166 @@
+
+.product-title{
+  text-align: @text-align-center;
+}
+
+.product-price{
+  text-align: @text-align-center;
+}
+
+.product {
+  display: inline-block;
+  transition: height 0.35s ease;
+  flex-grow: 1; 
+  margin-bottom: 20px; 
+}
+
+.product.selected {
+  height: 815px;
+  margin: 0;
+}
+
+.product.selected .image-main {
+  border: 10px solid @color-base;
+}
+
+.product .image-main {
+  cursor: pointer;
+  max-width: @product-width;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.product .image-main img {
+  max-height: @product-height;
+  width: 100%;
+}
+
+.product .details-popup .title{
+  font-size: 35px;
+  margin-bottom: 40px;
+}
+
+.description{
+  margin-bottom: 40px;
+}
+
+.product .details-popup {
+  position: absolute;
+  top: auto;
+  left: 0;
+  width: calc(100% - 6em);
+  background-color: @color-base;
+  margin-top: 10px;
+  padding: 0 3em;
+  height: 0;
+  visibility: hidden;
+  z-index: 2;
+  opacity: 0;
+  transition-duration: 0.35s;
+  transition-timing-function: ease;
+  transition-property: height, padding, visibility, opacity;
+}
+
+.product.selected .details-popup {
+  height: auto;
+  visibility: visible;
+  margin-top: 0;
+  opacity: 1;
+}
+
+.product.selected .details-popup .row {
+  flex-wrap: nowrap;
+}
+
+.product .image-primary {
+  align-self: center;
+  flex-grow: 1;
+}
+
+.product .details-popup .gallery-container {
+  margin-right: 10px;
+}
+
+.product .image-primary {
+  margin: 10px 10px 0 0;
+  min-width: 510px;
+  max-width: 510px;
+  width: 510px;
+  height: 510px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background: #fff;
+}
+
+.product .image-primary img {
+    width: 100%;
+    height: 100%;
+}
+
+.product .details-popup .gallery-container .image-thumbnail {
+  cursor: pointer;
+  min-width: 140px;
+  max-width: 140px;
+  width: 140px;
+  height: 95px;
+  margin: 5px 0;
+}
+
+.card{
+    margin-bottom: 15px;
+}
+
+.thumbnail-container{
+    margin: 0 0.5em;
+}
+
+@media (min-width: 1200px) {
+    .col-lg-1 {
+        width: 8.33333%
+    }
+
+    .col-lg-2 {
+        width: 16.66667%
+    }
+
+    .col-lg-3 {
+        width: 23%;
+    }
+
+    .col-lg-4 {
+        width: 33.33333%
+    }
+
+    .col-lg-5 {
+        width: 41.66667%
+    }
+
+    .col-lg-6 {
+        width: 50%
+    }
+}
+
+.exclusive-product {
+    top: 6px;
+    left: 37px;
+    position: absolute;
+    padding: 3px 14px;
+    background: white;
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: #dfac96
+}
+
+@media (max-width: 1599px) {
+    .exclusive-product {
+        top:6px;
+        left: 22px;
+        position: absolute
+    }
+}
+

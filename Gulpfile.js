@@ -6,6 +6,7 @@ var cleanCss = require('gulp-clean-css');
 var bower = require('gulp-bower');
 var pump = require('pump');
 var connect = require('gulp-connect');
+var less = require('gulp-less');
 
 gulp.task('serve', function () {
   connect.server({
@@ -26,14 +27,21 @@ gulp.task('bundle_js', function () {
   ]);
 });
 
-gulp.task('bundle_css', function () {
-  pump([
-    gulp.src(['src/css/**/*.css']),
-    concat('bundle.css'),
-    // cleanCss(),
-    gulp.dest('build'),
-    connect.reload()
-  ]);
+// gulp.task('bundle_css', function () {
+//   // pump([
+//   //   gulp.src(['src/css/**/*.less']),
+//   //   less(),
+//   //   concat('bundle.css'),
+//   //   // cleanCss(),
+//   //   gulp.dest('build'),
+//   //   connect.reload()
+//   // ]);
+// });
+gulp.task('bundle_css', function(){
+    return gulp.src(['src/css/**/*.less'])
+        .pipe(less())
+        .pipe(concat('bundle.css'))
+        .pipe(gulp.dest('build'));
 });
 
 gulp.task('templates', function () {
