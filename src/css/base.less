@@ -1,3 +1,4 @@
+@import (less) "variables";
 
 .h1,
 .h2,
@@ -14,7 +15,8 @@ img{
 }
 
 body {
-  font-family: 'Delius', cursive;
+  // font-family: 'Delius', cursive;
+  font-family: 'fontello';
   background-image: @background-base;
   height: 100%;
   margin: 0;
@@ -34,6 +36,8 @@ body {
   min-height: 3em;
   background-color: @color-base;
   padding: 1em;
+  border-top: 1px solid #e9e9e9;
+  text-transform: uppercase;
   .flex
 }
 
@@ -115,6 +119,13 @@ section#about{
   line-height: 1.65;
   color: #565a5b;
   text-transform: uppercase;
+}
+
+.cart-count .badge:before {
+    content: '\203a';
+    margin-right: 4px;
+    margin-left: 2px;
+    display: inline-block;
 }
 
 hr#nav{

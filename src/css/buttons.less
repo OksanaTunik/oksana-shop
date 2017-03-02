@@ -1,25 +1,57 @@
+@import (less) "base";
+
 .add-to-cart{
   align-items: center;
-  margin-top: 2em;
-  .flex
 }
 .btn {
-  border-radius: 6px;
   padding: 1em;
-  border: @button-border-size @button-border-color;
   font-size: 16px;
-}
-
-.btn.btn-primary[disabled] {
-  border: @button-border-size @button-border-color;
-  background-color: @button-border-color;
+  color:@button-border-color;
 }
 
 .btn.btn-primary {
   background-color: @button-color;
-  border: @button-border-size @button-color;
-  color: white;
-  vertical-align: middle;
-  width: 300px;
-  min-width: 300px;
+  border: @button-border-size @button-border-color;
+  min-width: 10em;
+  width: 18em;
 }
+
+.btn.btn-primary.otherBtn{
+  background-color: @button-border-color;
+  color: @button-color;
+  min-width: 5em;
+  width: 8em;
+  font-size: 1em;
+}
+
+.btn.add-to-cart:before {
+    background: url(//cdn.shopify.com/s/files/1/0233/5133/t/28/assets/icon_bag-default.png?13759635558375442382);
+}
+.btn.add-to-cart:before {
+    content: '';
+    height: 24px;
+    width: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -2px;
+    margin-right: 10px;
+}
+
+// .btn.btn-primary[disabled] {
+//   border: @button-border-size @button-border-color;
+//   background-color: @button-border-color;
+// }
+
+// .btn.btn-primary[disabled] {
+//   border: @button-border-size @button-border-color;
+//   background-color: @button-border-color;
+// }
+
+// .btn.btn-primary {
+//   background-color: @button-color;
+//   border: @button-border-size @button-color;
+//   color: white;
+//   vertical-align: middle;
+//   width: 300px;
+//   min-width: 300px;
+// }

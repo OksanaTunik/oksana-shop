@@ -1,3 +1,8 @@
+@import (less) "base";
+
+.card{
+  justify-content: center;
+}
 
 .product-title{
   text-align: @text-align-center;
@@ -36,14 +41,21 @@
   max-height: @product-height;
   width: 100%;
 }
+.main-description{
+  padding-left:50px;
+}
 
 .product .details-popup .title{
   font-size: 35px;
-  margin-bottom: 40px;
+  margin-bottom: @amount-margin-bottom;
 }
 
 .description{
-  margin-bottom: 40px;
+  margin-bottom: @product-margin-bottom;
+}
+
+.amountProducts{
+  margin-bottom: @amount-margin-bottom;
 }
 
 .product .details-popup {
@@ -110,12 +122,40 @@
   margin: 5px 0;
 }
 
-.card{
-    margin-bottom: 15px;
-}
-
 .thumbnail-container{
     margin: 0 0.5em;
+}
+
+.col input[type="number"] {
+    width: 100%;
+    max-width: 2em;
+    text-align: center;
+    font-size: 14px;
+    font-size: 1.4rem;
+    -moz-appearance: textfield;
+    padding: 8px 10px;
+    margin-bottom: 0;
+    background-color: @button-color;
+    border: @button-border-size @button-border-color;
+    color:@button-border-color;
+}
+
+.col input[type="number"]:focus 
+{
+    border:1px solid @color-base;
+    color:@text-color;
+}
+
+.exclusive-product {
+    top: 6px;
+    left: 37px;
+    position: absolute;
+    padding: 3px 14px;
+    background: white;
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: #dfac96
 }
 
 @media (min-width: 1200px) {
@@ -142,18 +182,6 @@
     .col-lg-6 {
         width: 50%
     }
-}
-
-.exclusive-product {
-    top: 6px;
-    left: 37px;
-    position: absolute;
-    padding: 3px 14px;
-    background: white;
-    display: inline-block;
-    font-size: 11px;
-    letter-spacing: 1px;
-    color: #dfac96
 }
 
 @media (max-width: 1599px) {

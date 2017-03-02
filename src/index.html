@@ -48,12 +48,22 @@
     <div class="col">
       <a href="#lookbook">Lookbook</a>
       <a href="#story">Our story</a>
-      <a href="#bag">Bag</a>
+      <a href="#bag" class = "cart-count cartCount">Bag
+        <span class="badge">0</span>
+      </a>
     </div>
   </div>
   <hr id="nav" data-content="">
 
   <section id="about" ng-controller="CarouselCtrl as carousel">
+      <wallop-slider
+        data-images="images"
+        data-current-item-index="index"
+        data-on-previous="updateTsPrevious()"
+        data-on-next="updateTsNext()"
+        
+        ></wallop-slider>
+  
     <div ng-repeat="card in carousel.slides">
       <div class="slider-image">
         <img alt="Image" ng-src="{{card.image[0]}}">
@@ -88,7 +98,7 @@
             <!-- END TEMPLATES -->
         
             <div class="row card">
-              <div class = "image-main" style = "margin-bottom:10px;">
+              <div class = "image-main">
               <div class="exclusive-product">EXCLUSIVE</div>
               <img alt="Image" ng-src="{{product.images[0]}}" ng-click="index.toggleProductDetails(product); showDetails =! showDetails">
               <a ng-click="index.toggleProductDetails(product)" class="cornerLink">View more</a>
@@ -121,32 +131,32 @@
                         <img ng-src="{{product.images[index.selectedImageIndex]}}" alt="Primary">
                       </div>
                     </div>
-                    <div class="col">
-                      <div class="description-container column2 outer-div">
+                    <div class="col main-description">
+                      <div class="description-container column2">
                         <div class="title" ng-bind-html="index.selectedProduct.title | trust"></div>
                         <div class="description" ng-bind-html="index.selectedProduct.description | trust"></div>
 
                         <!--   <div class="small text-danger" ng-if="index.selectedProduct.amount <= 0">This product is currently inavailable</div> -->
-                        <div class="row">
+                        <div class="row description">
                           <div class="price column2">{{ index.selectedProduct.price | currency }}</div>
                         </div>
                         <div class="row amountProducts">
-                          <div class="col">
+                          <div class="col column1">
                             <div>quantity</div>
                           </div>
-                          <div class="col">
+                          <div class="col column5">
                             <input type="number" min-value="1" value="1" class="amount">
                           </div>
-                          <div class="col">
+                          <!--<div class="col">
                             <div class="small" ng-if="index.selectedProduct.amount > 0">{{index.selectedProduct.amount}}
                               <ng-pluralize count="index.selectedProduct.amount" when="{'1': 'item', 'other': 'items'}"></ng-pluralize> available</div>
                             <div class="small text-danger" ng-if="index.selectedProduct.amount <= 0">This product is currently inavailable</div>
 
-                          </div>
+                          </div>-->
                         </div>
                         <div class="row add-to-cart">
                           <div class="column2" ng-if="index.selectedProduct.amount > 0">
-                            <button class="btn btn-lg btn-primary" ng-click="index.addToCart(index.selectedProduct)">Add to cart</button>
+                            <button class="btn btn-primary add-to-cart" ng-click="index.addToCart(index.selectedProduct)">Add to cart</button>
                           </div>
                           <div class="column2 social-buttons">
                             <div> share this item</div>
@@ -207,7 +217,7 @@
 
                 <li>
                 <!--<button type="submit">Send</button>-->
-                <button type="submit" name="send" class="add-to-cart btn btn-default btn-lg">Add to cart</button>
+                <button type="submit" name="send" class="btn btn-primary otherBtn">Send</button>
                 </li>
               </ul>
             </form>
@@ -254,7 +264,7 @@
 
       <div class="row card-section">
         <p><em>7 to 8 sentences, describing the whole idea and the workflow</em></p>
-        <button type="submit" name="add" id="purchase" class="add-to-cart btn btn-default btn-lg">Add to cart</button>
+        <button type="submit" name="add" class="btn btn-primary otherBtn">Load more</button>
       </div>
     </section>
 
