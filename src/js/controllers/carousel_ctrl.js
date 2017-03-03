@@ -5,16 +5,18 @@
     .module('ShoppingCartApp')
     .controller('CarouselCtrl', CarouselCtrl);
 
-  function CarouselCtrl() {
+  function CarouselCtrl($scope) {
     var vm = this;
 
     vm.cart = {
       items: []
     };
 
-    function act() {
+    activ();
+
+    function activ() {
       // TODO: fetch from API
-      vm.slides = [
+       vm.slides = [
         {
           image: ['/img/slides/slide3.jpg']
         },
@@ -26,9 +28,5 @@
         }
       ];
     }
-
-    function startGalleryAutoScroll() {
-    }
-
   }
 })();

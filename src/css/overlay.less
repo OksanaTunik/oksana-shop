@@ -2,6 +2,11 @@
 .image-main img {
     display: block;
 }
+
+.product.selected .cornerLink {
+    display: none;
+}
+
 .image-main .cornerLink {
     opacity: 0;
     position: absolute;
@@ -16,9 +21,9 @@
     -webkit-transition: opacity 500ms;
     -moz-transition: opacity 500ms;
     -o-transition: opacity 500ms;
-    transition: opacity 500ms;
-    
+    transition: opacity 500ms; 
 }
-.image-main:hover .cornerLink {
+
+.product .image-main:hover .cornerLink {
     opacity: 0.8;
 }

@@ -74,7 +74,7 @@
           title: 'Poducha #5',
           price: 9.99,
           description: "<div itemprop='description' class='description'><p>Stylish drop-crotch pants featuring a simple bow tie print.</p><p>Elastic waistband adorned with single wooden button in front center.</p><p>100% cotton</p><p>Wash cold and inside out. Tumble dry low or lay flat.</p></div>",
-          images: ['/img/products/6.jpg', '/img/products/3.jpg', '/img/products/0.jpg', '/img/products/1.jpg', '/img/products/2.jpg', '/img/products/4.jpg'],
+          images: ['/img/products/3.jpg', '/img/products/3.jpg', '/img/products/0.jpg', '/img/products/1.jpg', '/img/products/2.jpg', '/img/products/4.jpg'],
           amount: 5
         },
         {
