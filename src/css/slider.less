@@ -1,0 +1,43 @@
+.slide {
+  display: none;
+  position: absolute;
+}
+
+.slider-container .slider-viewport .slide img {
+  width: 600px !important; // BE CAREFULL WITH THESE!
+  max-width: 600px !important; // BE CAREFULL WITH THESE! KEEP IN RESPECT WITH img
+}
+
+.slide.current {
+  display: block;
+}
+
+.slide.prev {
+  display: block;
+  left: -600px;
+}
+
+.slide.next {
+  display: block;
+  left: 600px;
+}
+
+.slider-viewport {
+  position: relative;
+}
+
+.slider-viewport.animating-next {
+  transition: all 1s ease;
+  margin-left: -600px;
+}
+
+.slider-viewport.animating-prev {
+  transition: all 1s ease;
+  margin-left: 600px;
+}
+
+.slider-container {
+  overflow: hidden;
+  width: 600px;
+  height: 400px;
+}

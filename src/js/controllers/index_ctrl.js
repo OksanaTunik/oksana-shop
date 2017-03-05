@@ -5,7 +5,7 @@
     .module('ShoppingCartApp')
     .controller('IndexCtrl', IndexCtrl);
 
-  function IndexCtrl($scope) {
+  function IndexCtrl($interval) {
     var vm = this;
 
     vm.cart = {
@@ -86,6 +86,8 @@
           amount: 5
         }
       ];
+
+      vm.slides = ['/img/slides/slide1.png', '/img/slides/slide2.jpg', '/img/slides/slide3.jpg'];
     }
 
     function getTotal() {
@@ -98,14 +100,15 @@
     }
 
     function startGalleryAutoScroll() {
-      vm.selectedImageIndexIntervalId = setInterval(function () {
+      vm.selectedImageIndexIntervalId = $interval(function () {
         vm.selectedImageIndex = (vm.selectedImageIndex + 1) % vm.selectedProduct.images.length;
-        $scope.$apply();
+        // $scope.$apply();
       }, vm.changeSelectedImageIndexTimeout);
     }
 
     function stopGalleryAutoScroll() {
-      clearInterval(vm.selectedImageIndexIntervalId);
+      // clearInterval(vm.selectedImageIndexIntervalId);
+      vm.selectedImageIndexIntervalId.cancel();
     }
 
     function toggleProductDetails(product) {
