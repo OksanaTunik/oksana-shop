@@ -3,6 +3,9 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#7796A8">
   <title>Shopping Cart</title>
 
   <link rel="stylesheet" href="/bundle.css">
@@ -16,45 +19,25 @@
     <p>Free domestic shipping on orders over $60*</p>
 
   </div>
-  <!--<div class="header row">
-   <div class="col avatar-container">
+  <div class="header row">
+    <div class="col avatar-container">
       <a href="/" class="shop_logo">
         <img src="//cdn.shopify.com/s/files/1/0885/9428/t/4/assets/logo.svg?2067825696143971363" onerror="this.onerror=null; this.src='//cdn.shopify.com/s/files/1/0885/9428/t/4/assets/logo.png?2067825696143971363'"
           alt="Mapamundi Kids" width="276">
       </a>
     </div>
 
-    <div class="col text-container">
-      <div class="row">
-        <div class="h2">Title</div>
-      </div>
-
-      <div class="row">
-        <em>One-line description ololollo</em>
-      </div>
-    </div>
-
     <div class="col cart-container">
       <a href="#cart" ng-show="index.cart.items.length > 0"><i class="glyphicon glyphicon-shopping-cart"></i></a>
     </div>
-  </div>-->
+  </div>
 
-  <div class="row navigation col-xs-1">
-    <!--<div class="col avatar-container">
-      <a href="/" class="shop_logo">
-        <img src="https://cdn.shopify.com/s/files/1/1493/3240/files/mylogoALPHA_Black_copy_2_100x.png?v=1485669842" width="100px"
-          alt="Mapamundi Kids" width="276">
-      </a>
-    </div>-->
+  <div class="row navigation small-one-whole">
     <div class="col">
-      <a href="/" class="shop_logo">
-        <img src="https://cdn.shopify.com/s/files/1/1493/3240/files/mylogoALPHA_Black_copy_2_100x.png?v=1485669842" width="100px"
-          alt="Mapamundi Kids" width="276">
-      </a>
       <a class="active " href="#products ">Products</a>
       <a href="#instashop ">Instashop</a>
       <a href="#contact ">Contact us</a>
-    
+
     </div>
     <div class="col ">
       <a href="#lookbook ">Lookbook</a>
@@ -78,13 +61,7 @@
     </div>
   </section>-->
 
-
-
-
-
   <div class="wrapper ">
-    
-
     <section id="products ">
       <hr data-content="Products ">
 
@@ -98,99 +75,100 @@
         </div>
 
         <div class="product-row ">
-
-          <div class="product col-xs-4 col-xs-3 col-xs-2 col-xs-1" ng-repeat="product in index.products " ng-class="{
-      'selected': (index.selectedProduct==product)} ">
-
-            <!-- TEMPLATES -->
-            <!--<script type="text/ng-template " id="/tmpl/product.html ">
-        <img src="$parent.images[0] " alt=" ">
-      </script>
-
-      <div ng-include=" '/tmpl/product.html' "></div>-->
-            <!-- END TEMPLATES -->
-
-            <div class="row card ">
-              <div class="image-main ">
+          <div class="grid grid--uniform grid--view-items">
+            <div class="product grid__item grid__item--featured-collections medium-one-quarter" ng-repeat="product in index.products "
+              ng-class="{'selected': (index.selectedProduct==product)} ">
+              <div class="grid-view-item">
                 <div class="exclusive-product ">EXCLUSIVE</div>
-                <img alt="Image " ng-src="{{product.images[0]}} " ng-click="index.toggleProductDetails(product); showDetails=!
-      showDetails ">
-                  <a ng-click="index.toggleProductDetails(product) " class="cornerLink ">View more</a>
-              </div>
-              <div class="image-description" style="width:100%">
-                <div ng-hide="showDetails ">
-                  <div class="product-title ">
-                    <div class="title ">{{ product.title }}</div>
-                  </div>
-                  <div class="product-price ">
-                    <span class="money " itemprop="price ">
-                <span class="money ">{{ product.price}}</span>
-                    </span>
-                  </div>
+                <img class="grid-view-item__image" ng-src="{{product.images[0]}} " ng-click="index.toggleProductDetails(product); showDetails=!
+      showDetails " alt="">
+
+                <a ng-click="index.toggleProductDetails(product) " class="cornerLink ">View more</a>
+                <div class="h4 grid-view-item__title">{{ product.title }}</div>
+                <div class="grid-view-item__meta">
+                  <span class="product-price__price">{{ product.price }}</span>
+
                 </div>
+                </a>
               </div>
-            </div>
-            
-            <div class="details-popup col-xs-1">
-              <div class="row details-container ">
-                <div class="col gallery-container column3" ng-mouseenter="index.stopGalleryAutoScroll()
-      " ng-mouseleave="index.startGalleryAutoScroll() ">
-                  <div class="row row-details"> 
-                    <div class="col col-details thumbnail-container">
-                      <img ng-src="{{image}} " alt="Thumbnail " class="image-thumbnail " ng-repeat="image in product.images
+
+              <div class="details-popup">
+                <!--<div class="row grid">-->
+
+                <!--<div class="grid__item product-single__photos medium-one-tenth">
+                       <div class="thumbnail-container">
+                        <img ng-src="{{image}} " alt="Thumbnail " class="image-thumbnail " ng-repeat="image in product.images
       track by $index " ng-if="$index> 0" ng-click="index.selectedImageIndex = $index">
-                    </div>
-                    <div class="col col-details">
-                      <div class="image-primary">
-                        <img ng-src="{{product.images[index.selectedImageIndex]}}" alt="Primary">
-                      </div>
-                    </div>
-                    <!--<div class="col main-description col-xs-1">
-                      <div class="description-container column2">
-                        <div class="title" ng-bind-html="index.selectedProduct.title | trust"></div>
-                        <div class="description" ng-bind-html="index.selectedProduct.description | trust"></div>-->
-
-                    <!--   <div class="small text-danger" ng-if="index.selectedProduct.amount <= 0">This product is currently inavailable</div> -->
-                    <!--<div class="row description">
-                          <div class="price column2">{{ index.selectedProduct.price | currency }}</div>
-                        </div>
-                        <div class="row amountProducts">
-                          <div class="col column1">
-                            <div>quantity</div>
-                          </div>
-                          <div class="col column5">
-                            <input type="number" min-value="1" value="1" class="amount">
-                          </div>-->
-                    <!--<div class="col">
-                            <div class="small" ng-if="index.selectedProduct.amount > 0">{{index.selectedProduct.amount}}
-                              <ng-pluralize count="index.selectedProduct.amount" when="{'1': 'item', 'other': 'items'}"></ng-pluralize> available</div>
-                            <div class="small text-danger" ng-if="index.selectedProduct.amount <= 0">This product is currently inavailable</div>
-
-                          </div>-->
-                    <!--</div>
-                        <div class="row add-to-cart">
-                          <div class="column2" ng-if="index.selectedProduct.amount > 0">
-                            <button class="btn btn-primary add-to-cart" ng-click="index.addToCart(index.selectedProduct)">Add to cart</button>
-                          </div>
-                          <div class="column2 social-buttons">
-                            <div> share this item</div>
-                            <ul class="social">
-                              <li class="social-facebook">
-                                <a class="popup" href="" target="_blank"></a>
-                              </li>
-                              <li class="social-instagram">
-                                <a href=""></a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
                       </div>
                     </div>-->
+                <div class="grid__item medium-one-half ">
+                  <div id="FeaturedImageZoom-product-template" style="position: relative; overflow: hidden;">
+                    <img ng-src="{{product.images[index.selectedImageIndex]}}" alt="The LUXE floor cushion" id="FeaturedImage-product-template"
+                      class="product-featured-img js-zoom-enabled">
+                    <img ng-src="{{product.images[index.selectedImageIndex]}}" class="zoomImg" style="position: absolute; top: 0px; left: 0px; opacity: 0; width: 743px; height: 743px; border: none; max-width: none; max-height: none;"></div>
+
+                </div>
+                <div class="grid__item medium-one-half ">
+                  <div class="description-container column2">
+                    <div class="title" ng-bind-html="index.selectedProduct.title | trust"></div>
+                    <div class="description" ng-bind-html="index.selectedProduct.description | trust"></div>
+
+                    <!--   <div class="small text-danger" ng-if="index.selectedProduct.amount <= 0">This product is currently inavailable</div> -->
+                    <div class="row description product-single__description rte" itemprop="description" ">
+                              <div class="price column2 ">{{ index.selectedProduct.price | currency }}</div>
+                            </div>
+                            <div class="row amountProducts ">
+                              <div class="col column1 ">
+                                <div>quantity</div>
+                              </div>
+                              <div class="col column5 ">
+                                <input type="number " min-value="1 " value="1 " class="amount ">
+                              </div>
+                              <!--<div class="col ">
+                            <div class="small " ng-if="index.selectedProduct.amount> 0">{{index.selectedProduct.amount}}
+                      <ng-pluralize count="index.selectedProduct.amount" when="{'1': 'item', 'other': 'items'}"></ng-pluralize> available</div>
+                    <div class="small text-danger" ng-if="index.selectedProduct.amount <= 0">This product is currently inavailable</div>
+
+                  </div>-->
+                </div>
+                <div class="row add-to-cart">
+                  <div class="column2" ng-if="index.selectedProduct.amount > 0">
+                    <button class="btn btn-primary add-to-cart" ng-click="index.addToCart(index.selectedProduct)">Add to cart</button>
                   </div>
+                </div>
+                <div class="row social-sharing ">
+                  <a target="_blank" href="//www.facebook.com/sharer.php?u=https://my-little-joy.myshopify.com/products/the-luxe" class="btn btn--small btn--secondary btn--share share-facebook"
+                    title="Share on Facebook">
+                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-facebook" viewBox="0 0 20 20">
+                      <path fill="#444" d="M18.05.811q.439 0 .744.305t.305.744v16.637q0 .439-.305.744t-.744.305h-4.732v-7.221h2.415l.342-2.854h-2.757v-1.83q0-.659.293-1t1.073-.342h1.488V3.762q-.976-.098-2.171-.098-1.634 0-2.635.964t-1 2.72V9.47H7.951v2.854h2.415v7.221H1.413q-.439 0-.744-.305t-.305-.744V1.859q0-.439.305-.744T1.413.81H18.05z"></path>
+                    </svg>
+                    <span class="share-title" aria-hidden="true">Share</span>
+                    <span class="visually-hidden">Share on Facebook</span>
+                  </a>
+                  <a target="_blank" href="//pinterest.com/pin/create/button/?url=https://my-little-joy.myshopify.com/products/the-luxe&amp;media=//cdn.shopify.com/s/files/1/1493/3240/products/e7673d20cd8b8d41ab3445c3860d3427_1024x1024.jpg?v=1474027690&amp;description=The%20LUXE%20floor%20cushion"
+                    class="btn btn--small btn--secondary btn--share share-pinterest" title="Pin on Pinterest">
+                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-pinterest" viewBox="0 0 20 20">
+                      <path fill="#444" d="M9.958.811q1.903 0 3.635.744t2.988 2 2 2.988.744 3.635q0 2.537-1.256 4.696t-3.415 3.415-4.696 1.256q-1.39 0-2.659-.366.707-1.147.951-2.025l.659-2.561q.244.463.903.817t1.39.354q1.464 0 2.622-.842t1.793-2.305.634-3.293q0-2.171-1.671-3.769t-4.257-1.598q-1.586 0-2.903.537T5.298 5.897 4.066 7.775t-.427 2.037q0 1.268.476 2.22t1.427 1.342q.171.073.293.012t.171-.232q.171-.61.195-.756.098-.268-.122-.512-.634-.707-.634-1.83 0-1.854 1.281-3.183t3.354-1.329q1.83 0 2.854 1t1.025 2.61q0 1.342-.366 2.476t-1.049 1.817-1.561.683q-.732 0-1.195-.537t-.293-1.269q.098-.342.256-.878t.268-.915.207-.817.098-.732q0-.61-.317-1t-.927-.39q-.756 0-1.269.695t-.512 1.744q0 .39.061.756t.134.537l.073.171q-1 4.342-1.22 5.098-.195.927-.146 2.171-2.513-1.122-4.062-3.44T.59 10.177q0-3.879 2.744-6.623T9.957.81z"></path>
+                    </svg>
+                    <span class="share-title" aria-hidden="true">Pin it</span>
+                    <span class="visually-hidden">Pin on Pinterest</span>
+                  </a>
+
+                </div>
               </div>
+
             </div>
+
+            <!--</div>-->
+
+            <!--<div class="col gallery-container column3" ng-mouseenter="index.stopGalleryAutoScroll()
+      " ng-mouseleave="index.startGalleryAutoScroll() ">
+
+            </div>-->
+          </div>
         </div>
       </div>
+  </div>
   </div>
   </section>
 
@@ -198,7 +176,7 @@
     <hr data-content="Contact">
 
     <div class="row card-section">
-      <div class="column2 outer-div col-xs-1 col-xs-2" style="padding: 0 30px;">
+      <div class="column2 outer-div small-one-whole col-xs-2">
         <b>General Enquiries</b><br/>
 
         <p>If you have a general enquiry check out our FAQ page where you may find your question is already answered!</p>
@@ -208,7 +186,7 @@
         <p>If you are a distributor or store interested in working with us: ben@thehorse.com.au
         </p>
       </div>
-      <div class="column2 outer-div col-xs-1 col-xs-2">
+      <div class="column2 outer-div small-one-whole">
         <div class="form-container">
           <form>
             <ul class="side-lbl">
@@ -243,18 +221,129 @@
   <hr data-content="&#x2740; &#x2741; &#x2748; Your cart &#x2748; &#x2766; &#x2767;" ng-show="index.cart.items.length > 0">
 
   <section id="cart" class="row card-section" ng-show="index.cart.items.length">
+
+    <div class="page-width" data-section-id="cart-template" data-section-type="cart-template">
+      <div class="section-header text-center">
+        <h1>Your cart</h1>
+      </div>
+
+      <form action="/cart" method="post" novalidate="" class="cart">
+        <table>
+          <thead class="cart__row cart__header">
+            <tr>
+              <th colspan="2">Product</th>
+              <th>Price</th>
+              <th class="text-center">Quantity</th>
+              <th class="text-right">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr class="cart__row border-bottom line1 cart-flex border-top">
+              <td class="cart__image-wrapper cart-flex-item">
+                <a href="/products/the-luxe?variant=20373478405">
+                  <img class="cart__image" src="//cdn.shopify.com/s/files/1/1493/3240/products/e7673d20cd8b8d41ab3445c3860d3427_95x95@2x.jpg?v=1474027690"
+                    alt="The LUXE floor cushion - Tan (brown)">
+                </a>
+              </td>
+              <td class="cart__meta small--text-left cart-flex-item">
+                <div class="list-view-item__title">
+                  <a href="/products/the-luxe?variant=20373478405">
+                    The LUXE floor cushion
+                    
+                  </a>
+                </div>
+
+                <div class="cart__meta-text">
+
+                  Title: Tan (brown)<br>
+
+                </div>
+
+
+
+
+
+                <p class="small--hide">
+                  <a href="/cart/change?line=1&amp;quantity=0" class="btn btn--small btn--secondary cart__remove">Remove</a>
+                </p>
+              </td>
+              <td class="cart__price-wrapper cart-flex-item">
+                $145.00
+
+
+
+                <div class="cart__edit medium-hide">
+                  <button type="button" class="btn btn--secondary btn--small js-edit-toggle cart__edit--active" data-target="line1">
+                    <span class="cart__edit-text--edit">Edit</span>
+                    <span class="cart__edit-text--cancel">Cancel</span>
+                  </button>
+                </div>
+              </td>
+              <td class="cart__update-wrapper cart-flex-item text-right">
+                <a href="/cart/change?line=1&amp;quantity=0" class="btn btn--small btn--secondary cart__remove medium-hide">Remove</a>
+                <div class="cart__qty">
+                  <label for="updates_20373478405:d736d88f50d536b7d5e7bd4fad77e015" class="cart__qty-label">Quantity</label>
+                  <input class="cart__qty-input" type="number" name="updates[]" id="updates_20373478405:d736d88f50d536b7d5e7bd4fad77e015" value="1"
+                    min="0" pattern="[0-9]*">
+                </div>
+                <input type="submit" name="update" class="btn btn--small cart__update medium-hide" value="Update">
+              </td>
+              <td class="text-right small--hide">
+
+
+                <div>
+                  $145.00
+                </div>
+
+
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <footer class="cart__footer">
+          <div class="grid">
+
+            <div class="grid__item medium-one-half cart-note">
+              <label for="CartSpecialInstructions" class="cart-note__label small--text-center">Add a note to your order</label>
+              <textarea name="note" id="CartSpecialInstructions" class="cart-note__input"></textarea>
+            </div>
+
+            <div class="grid__item text-right small--text-center medium-one-half">
+              <div>
+                <span class="cart__subtotal-title">Subtotal</span>
+                <span class="cart__subtotal">$145.00</span>
+              </div>
+
+              <div class="cart__shipping">Shipping &amp; taxes calculated at checkout</div>
+              <a href="collections/all" class="btn btn--secondary cart__update cart__continue--large small--hide">Continue shopping</a>
+              <input type="submit" name="update" class="btn btn--secondary cart__update cart__update--large small--hide" value="Update">
+              <input type="submit" name="checkout" class="btn btn--small-wide" value="Check out">
+
+              <div class="additional-checkout-buttons"><button name="goto_pp" type="submit" id="paypal-express-button" class="additional-checkout-button additional-checkout-button--paypal-express"
+                  value="paypal_express">Checkout with <img alt="PayPal" src="//cdn.shopify.com/s/assets/checkout/easy-checkout-btn-paypal-cadb680457a51ea1df32214b16adad91083c80679c7f5017e35c731832e59b90.png"></button></div>
+
+            </div>
+          </div>
+        </footer>
+      </form>
+
+    </div>
+
     <div class="row" ng-repeat="cartItem in index.cart.items">
-      <div class="col-md-3 col-xs-12">
+      <div class="">
         <img ng-src="{{cartItem.image}}" alt="Image" class="img-rounded">
       </div>
 
-      <div class="col-md-9 col-xs-12">
+      <div class="">
         <div class="row">
-          <div class="col-xs-12 title">{{cartItem.title}}</div>
+          <div class="title">{{cartItem.title}}</div>
         </div>
 
         <div class="row">
-          <div class="col-xs-12 price">
+          <div class="price">
             <div class="product-price">{{cartItem.price | currency}}</div>
             <div class="amount">{{cartItem.amount}}</div>
             <div class="subtotal">{{(cartItem.price * cartItem.amount) | currency}}</div>
@@ -264,10 +353,10 @@
     </div>
 
     <div class="row">
-      <div class="col-xs-9">
+      <div class="">
         <hr>
       </div>
-      <div class="col-xs-3">
+      <div class="">
         <div class="h2 total">{{ index.getTotal() | currency }}</div>
       </div>
     </div>
@@ -277,8 +366,18 @@
     <hr data-content="@petitcollage on Instagram">
 
     <div class="row card-section">
-      <p><em>7 to 8 sentences, describing the whole idea and the workflow</em></p>
-      <button type="submit" name="add" class="btn btn-primary otherBtn">Load more</button>
+       <div class="grid grid--uniform grid--view-items">
+            <div class="product grid__item grid__item--featured-collections medium-one-sixth small-one-half" ng-repeat="product in index.products "
+              ng-class="{'selected': (index.selectedProduct==product)} ">
+              <div class="grid-view-item">
+                <img class="grid-view-item__image" ng-src="{{product.images[0]}} " ng-click="index.toggleProductDetails(product); showDetails=!
+      showDetails " alt="">
+              </div>
+              </div>
+              </div>
+              <div class = "medium-one-whole ">
+      <button type="submit" name="add" class="btn btn-primary otherBtn" style = "display: block; margin: 0 auto;">Load more</button>
+              </div>
     </div>
   </section>
 
@@ -286,7 +385,7 @@
     <hr data-content="Our story">
 
     <div class="row card-section">
-      <div class="column2 outer-div col-xs-1 col-xs-2">
+      <div class="column2 outer-div small-one-whole col-xs-2">
         <p>
           The Horse is a curated collection of leather lifestyle goods, owned and operated by husband and wife Scott and Amy Hawkes
           in their studio in Sydney, Australia. </p>
@@ -316,7 +415,7 @@
         </p>
         <p><em>Welcome to the family,</em></p>
       </div>
-      <div class="column2 outer-div col-xs-1 col-xs-2">
+      <div class="column2 outer-div small-one-whole col-xs-2">
         <div class="form-container">
           <img src="https://cdn.shopify.com/s/files/1/0233/5133/files/about-image_large.jpg?14917392989539256001">
         </div>
@@ -325,7 +424,7 @@
   </section>
 
   <div class="footer row">
-    <div class="column4 outer-div col-xs-3 col-xs-1">
+    <div class="column4 outer-div col-xs-3 small-one-whole">
       <div class="form-container">
         <p>The Horse is a curated collection of leather classics designed in Sydney, established in 2009.</p>
         <p><b>KONTAKT</b><br>
@@ -353,7 +452,7 @@
         <div>Contact Us</div>
       </div>
     </div>
-    <div class="column2 outer-div col-xs-1 hide">
+    <div class="column2 outer-div small-one-whole hide">
       <div class="form-container">
         <div>FAQs</div>
         <div>Shipping</div>
